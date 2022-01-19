@@ -11,6 +11,7 @@ class NavigationMenus extends Component
 
     use WithPagination;
     public $modalFormVisible;
+    public $modalConfirmDeleteVisible;
     public $modelId;
     public $label;
     public $slug;
@@ -36,6 +37,21 @@ class NavigationMenus extends Component
         $this->reset();
     }
 
+    public function update()
+    {
+        $this->validate();
+        NavigationMenu::find($this->modelId)->update($this->modelData());
+        $this->modalFormVisible = false;
+        $this->reset();
+    }
+
+    public function delete()
+    {
+        NavigationMenu::destroy($this->modelId);
+        $this->modalConfirmDeleteVisible = false;
+        $this->reset();
+    }
+
     public function read()
     {
         return NavigationMenu::paginate(5);
@@ -46,6 +62,30 @@ class NavigationMenus extends Component
         $this->resetValidation();
         $this->reset();
         $this->modalFormVisible = true;
+    }
+
+    public function updateShowModal($id)
+    {
+        $this->resetValidation();
+        $this->modelId = $id;
+        $this->modalFormVisible = true;
+        $this->loadModal();
+    }
+
+    public function deleteShowModal($id)
+    {
+        $this->modelId = $id;
+        $this->modalConfirmDeleteVisible = true;
+    }
+
+    private function loadModal()
+    {
+        $data = NavigationMenu::find($this->modelId);
+        $this->type = $data->type;
+        $this->sequence = $data->sequence;
+        $this->label = $data->label;
+        $this->slug = $data->slug;
+        $this->menuid = $data->menuid;
     }
 
     public function modelData()

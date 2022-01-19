@@ -145,6 +145,26 @@
             </x-slot>
         </x-jet-dialog-modal>
 
+        <!-- Delete page modal -->
+        <x-jet-dialog-modal wire:model="modalConfirmDeleteVisible">
+            <x-slot name="title">
+                {{ __('Delete Navigation Menu Item') }}
+            </x-slot>
+
+            <x-slot name="content">
+                {{ __('Are you sure you want to delete this navigation menu item?') }}
+            </x-slot>
+
+            <x-slot name="footer">
+                <x-jet-secondary-button wire:click="$toggle('modalConfirmDeleteVisible')" wire:loading.attr="disabled">
+                    {{ __('Cancel') }}
+                </x-jet-secondary-button>
+
+                <x-jet-danger-button class="ml-3" wire:click="delete" wire:loading.attr="disabled">
+                    {{ __('Delete Menu Item') }}
+                </x-jet-danger-button>
+            </x-slot>
+        </x-jet-dialog-modal>
 
     
 </div>

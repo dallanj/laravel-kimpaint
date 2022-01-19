@@ -63,7 +63,7 @@ class Pages extends Component
         $this->unassignDefaultNotFoundPage();
         Page::find($this->modelId)->update($this->modelData());
         $this->modalFormVisible = false;
-        $this->clearInputs();
+        $this->reset();
     }
     
     /**

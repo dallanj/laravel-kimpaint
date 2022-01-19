@@ -17,7 +17,7 @@ class CreateNavigationMenusTable extends Migration
             $table->id();
             $table->integer('sequence');
             $table->enum('type', ['Menu', 'SubMenu']);
-            $table->integer('for');
+            $table->integer('menuid')->nullable();
             $table->string('label');
             $table->string('slug');
             $table->timestamps();

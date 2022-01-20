@@ -6,3 +6,23 @@
     max-height:300px !important;
     overflow-y: scroll;
 }
+
+/* refresh css npm run dev */
+
+.text-orange {
+    color: #fbb03b;
+}
+
+.bg-orange {
+    background-color: #fbb03b;
+}
+
+.bg-orange:hover {
+    background-color: #FCBD58 !important;
+}
+
+h1.logo-text {
+    font-family: 'Rubik', sans-serif;
+    font-size:1.5rem;
+    color:#000;
+}

@@ -33,6 +33,9 @@
                                             {{$item->sequence}}
                                         </td>
                                         <td class="px-6 py-4 text-sm whitespace-no-wrap">
+                                            {{$item->label}}
+                                        </td>
+                                        <td class="px-6 py-4 text-sm whitespace-no-wrap">
                                             <a 
                                                 class="text-indigo-600 hover:text-indigo-900"
                                                 target="_blank"
@@ -40,9 +43,6 @@
                                             >
                                                 {{$item->slug}}
                                             </a>
-                                        </td>
-                                        <td class="px-6 py-4 text-sm whitespace-no-wrap">
-                                            {{$item->label}}
                                         </td>
                                         <td class="px-6 py-4 text-sm whitespace-no-wrap">
                                             @foreach ($data as $poo)

@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use App\Models\Page;
+use Illuminate\Support\Facades\DB;
 
 class Frontpage extends Component
 {
@@ -48,12 +49,28 @@ class Frontpage extends Component
     }
     
     /**
+     * Fetch navigation menu links from database
+     *
+     * @return void
+     */
+    private function menuLinks()
+    {
+        return DB::table('navigation_menus')
+        ->where('type', '=', 'Menu')
+        ->orderBy('sequence', 'asc')
+        ->orderBy('created_at', 'asc')
+        ->get();
+    }
+    
+    /**
      * Livewire render function
      *
      * @return void
      */
     public function render()
     {
-        return view('livewire.frontpage')->layout('layouts.frontpage');
+        return view('livewire.frontpage', [
+            'menuLinks' => $this->menuLinks(),
+        ])->layout('layouts.frontpage');
     }
 }

@@ -17,7 +17,7 @@ class NavigationMenus extends Component
     public $slug;
     public $sequence = 1;
     public $type = 'Menu';
-    public $menuid = null;
+    public $menuid;
 
     public function rules()
     {
@@ -56,11 +56,13 @@ class NavigationMenus extends Component
     public function update()
     {
         $this->validate();
-        
-
-        NavigationMenu::find($this->modelId)->update($this->modelData());
-        $this->modalFormVisible = false;
-        $this->reset();
+        if($this->checkData($this->type, $this->menuid)) {
+            NavigationMenu::find($this->modelId)->update($this->modelData());
+            $this->modalFormVisible = false;
+            $this->reset();
+        } else {
+            $this->addError('menuid', 'Sub menu items must have a predecessor while menu items cannot.');
+        }
     }
 
     public function delete()

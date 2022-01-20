@@ -22,6 +22,7 @@
                             </tr>
                         </thead>
                         <tbody class="bg-white divide-y divide-gray-200">
+
                             @if ($data->count())
                                 @foreach ($data as $item)
                                     <tr>
@@ -44,7 +45,11 @@
                                             {{$item->label}}
                                         </td>
                                         <td class="px-6 py-4 text-sm whitespace-no-wrap">
-                                            {{$item->menuid}}
+                                            @foreach ($data as $poo)
+                                                @if ($item->menuid == $poo->id)
+                                                    {{ $poo->label }}
+                                                @endif
+                                            @endforeach
                                         </td>
                                         <td class="px-6 py-4 text-right text-sm whitespace-no-wrap">
                                             <x-jet-secondary-button wire:click="updateShowModal({{$item->id}})">
@@ -118,11 +123,16 @@
                 <div class="mt-4">
                     <x-jet-label for="menuid" value="{{ __('Submenu for menu item') }}" />
                     <select wire:model="menuid" class="block appearance-none w-full bg-gray-100 border border-gray-200 text-gray-700 py-3 px-4 pr-8 round leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
-                        <option value="">If you are creating a submenu item please specify its predecessor menu item</option>
-                        <option value="1">Menu item</option>
-                        <option value="2">Submenu item</option>
+                        <option value="0">None</option>
+                        
+                        @foreach ($data as $item)
+                            @if ($item->type === 'Menu')
+                                <option value="{{ $item->id }}">{{ $item->label }}</option>
+                            @endif
+                        @endforeach
                     </select>
-                    <x-jet-input-error for="type" class="mt-2" />
+                    <x-jet-input-error for="menuid" class="mt-2" />
+                    <!-- @error('menuid') <span class="error">{{ $message }}</span> @enderror -->
                 </div>
 
                 

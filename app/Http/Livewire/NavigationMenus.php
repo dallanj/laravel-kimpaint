@@ -29,17 +29,35 @@ class NavigationMenus extends Component
         ];
     }
 
+    public function checkData($type,$submenu)
+    {
+        // make sure user cannot be under a menu item if type is menu
+        if($type === 'SubMenu' && $submenu || $type === 'Menu' && !$submenu) {
+            return true;
+        }
+
+        // return true or false
+    }
+
     public function create()
     {
         $this->validate();
-        NavigationMenu::create($this->modelData());
-        $this->modalFormVisible = false;
-        $this->reset();
+        if($this->checkData($this->type, $this->menuid)) {
+            NavigationMenu::create($this->modelData());
+            $this->modalFormVisible = false;
+            $this->reset();
+        } else {
+            $this->addError('menuid', 'Sub menu items must have a predecessor while menu items cannot.');
+        }
+        
+        
     }
 
     public function update()
     {
         $this->validate();
+        
+
         NavigationMenu::find($this->modelId)->update($this->modelData());
         $this->modalFormVisible = false;
         $this->reset();
@@ -104,5 +122,6 @@ class NavigationMenus extends Component
         return view('livewire.navigation-menus', [
             'data' => $this->read(),
         ]);
+        
     }
 }

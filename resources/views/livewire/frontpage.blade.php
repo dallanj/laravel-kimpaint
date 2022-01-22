@@ -13,7 +13,7 @@
         <polygon points="50,0 100,0 50,100 0,100" />
       </svg>
 
-      <div>
+      <div x-data="{ open: false, onPageLoad:false }">
         <div class="relative pt-6 px-4 sm:px-6 lg:px-8">
           <nav class="relative flex items-center justify-between sm:h-10 lg:justify-start" aria-label="Global">
             <div class="flex items-center flex-grow flex-shrink-0 lg:flex-grow-0">
@@ -24,7 +24,7 @@
                   <h1 class="logo-text"><strong>KIMPAINT</strong></h1>
                 </a>
                 <div class="-mr-2 flex items-center md:hidden">
-                  <button type="button" class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500" aria-expanded="false">
+                  <button @click.prevent="open = !open, onPageLoad = true" type="button" class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 navButton hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500" aria-expanded="false">
                     <span class="sr-only">Open main menu</span>
                     <!-- Heroicon name: outline/menu -->
                     <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -52,14 +52,15 @@
             From: "opacity-100 scale-100"
             To: "opacity-0 scale-95"
         -->
-        <div x-data="{ show: false }" class="absolute z-10 top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden">
+        <div :class="{ 'hide': !onPageLoad, 'hideMenu': !open, 'showMenu': open }" class="hide navMenu absolute z-10 top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden">
           <!-- <div class="rounded-lg shadow-md bg-white ring-1 ring-black ring-opacity-5 overflow-hidden"> -->
             <div class="px-5 pt-4 flex items-center justify-between">
               <div>
                 <!-- <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg" alt=""> -->
+                <h1 class="logo-text"><strong>KIMPAINT</strong></h1>
               </div>
               <div class="-mr-2">
-                <button @click="show =! show" type="button" class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+                <button @click.prevent="open = !open" type="button" class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 navButton hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
                   <span class="sr-only">Close main menu</span>
                   <!-- Heroicon name: outline/x -->
                   <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -68,12 +69,53 @@
                 </button>
               </div>
             </div>
-            <div :class="show ? 'block' : 'hidden'" class="px-2 pt-2 pb-3 space-y-1">
+            <div class="navMenu-links px-2 pt-2 pb-3 space-y-1">
               @foreach ($menuLinks as $link)
-                <a href="{{ url('/'.$link->slug) }}" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">{{ $link->label }}</a>
+                <!-- check if menu link contains submenu links -->
+                @php
+                  $hasSubLinks = false;
+                @endphp
+                @foreach ($subMenuLinks as $subLink)
+                    @if ($subLink->menuid == $link->id)
+                      @php $hasSubLinks = true; @endphp
+                    @endif
+                    @php break; @endphp
+                @endforeach
+
+                <!-- also need to remove the link if it contains sublinks and add js to toggle the submenu -->
+
+                <div class="navMenu-link-container">
+                  @if ($hasSubLinks)
+                    <a class="navMenu-link block"><span class="menuLinkStyle">{{ $link->label }}</span>
+                      <i class="fas fa-angle-down text-gray-400 hover:text-gray-500"></i>
+                    </a>
+                  @else
+                    <a href="{{ url('/'.$link->slug) }}" class="navMenu-link block"><span class="menuLinkStyle">{{ $link->label }}</span></a>
+                  @endif
+                  @foreach ($subMenuLinks as $subLink)
+                    @if ($subLink->menuid == $link->id)
+                      <a href="{{ url('/'.$subLink->slug) }}" class="navMenu-subLink block">{{ $subLink->label }}</a>
+                    @endif
+                  @endforeach
+                </div>
               @endforeach
             </div>
+           
+            <div class="mt-5 sm:mt-8 flex justify-center justify-start">
+              <div class="rounded-md shadow">
+                <a href="#" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-orange md:py-4 md:text-lg md:px-10">
+                  Call or text 905-351-7947
+                </a>
+              </div>
+            </div>
+
+            <footer class="menuFooter">
+              <p>© 2022 Kim Painting. All rights reserved.</p>
+              <p>Built by <a href="https://dallan.ca/">Dallan</a><p>
+            </footer>
           </div>
+
+         
         <!-- </div> -->
       </div>
     
@@ -88,7 +130,7 @@
           </p>
           <div class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
             <div class="rounded-md shadow">
-              <a href="#" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-orange hover:bg-light-orange md:py-4 md:text-lg md:px-10">
+              <a href="#" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-orange md:py-4 md:text-lg md:px-10">
                 Get your free paint quote
               </a>
             </div>

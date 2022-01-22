@@ -61,6 +61,15 @@ class Frontpage extends Component
         ->orderBy('created_at', 'asc')
         ->get();
     }
+    private function subMenuLinks()
+    {
+        return DB::table('navigation_menus')
+        ->where('type', '=', 'SubMenu')
+        ->orderBy('menuid', 'asc')
+        ->orderBy('sequence', 'asc')
+        ->orderBy('created_at', 'asc')
+        ->get();
+    }
     
     /**
      * Livewire render function
@@ -71,6 +80,7 @@ class Frontpage extends Component
     {
         return view('livewire.frontpage', [
             'menuLinks' => $this->menuLinks(),
+            'subMenuLinks' => $this->subMenuLinks(),
         ])->layout('layouts.frontpage');
     }
 }

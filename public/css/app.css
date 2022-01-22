@@ -1257,6 +1257,9 @@ select {
 .items-center {
   align-items: center;
 }
+.justify-start {
+  justify-content: flex-start;
+}
 .justify-end {
   justify-content: flex-end;
 }
@@ -1827,7 +1830,7 @@ select {
 }
 /* refresh css npm run dev */
 .text-orange {
-    color: #fbb03b;
+    color: #fbb03b !important;
 }
 .bg-orange {
     background-color: #fbb03b;
@@ -1839,6 +1842,99 @@ h1.logo-text {
     font-family: 'Rubik', sans-serif;
     font-size:1.5rem;
     color:#000;
+}
+/* mobile menu */
+div.navMenu {
+    background:#fff;
+    position: fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    z-index: 400;
+    display: flex;
+    flex-direction: column;
+    overflow-y:auto;
+}
+div.navMenu-links {
+    text-align: left;
+    display:flex;
+    flex-direction: column;
+    margin: 0;
+    margin-top:1em !important;
+    padding: 0 1.5em;  
+    flex-grow: 1;
+}
+div.navMenu-link-container {
+    border-bottom: 1px #F2F2F2 solid;
+}
+a.navMenu-link {
+    font-family: 'Lato', sans-serif !important;
+    font-size:1.25rem !important;
+    font-weight: bold !important;
+    padding: .75em 0;
+    width: 100%;
+    display: flex;
+    cursor: pointer;
+}
+a.navMenu-link > i, span.menuLinkStyle {
+    transition: 300ms;
+}
+a.navMenu-link > i {
+    margin-left:auto;
+    font-size: 1.5rem;
+    text-decoration: none;
+}
+span.menuLinkStyle:hover {
+    color: #fbb03b;
+    text-decoration: underline; 
+}
+a.navMenu-subLink {
+    font-family: 'Lato', sans-serif !important;
+    font-size: 1.125rem !important;
+    padding:.5em 1em;
+    width: 100%;
+}
+.hide {
+    display: none !important;
+}
+.showMenu {
+    -webkit-animation: slideInRight;
+            animation: slideInRight; /* referring directly to the animation's @keyframe declaration */
+    -webkit-animation-duration: .5s;
+            animation-duration: .5s; /* don't forget to set a duration! */
+}
+.hideMenu {
+    -webkit-animation: slideOutRight;
+            animation: slideOutRight; /* referring directly to the animation's @keyframe declaration */
+    /* animation-delay: 0s; */
+    -webkit-animation-duration: .5s;
+            animation-duration: .5s; /* don't forget to set a duration! */
+    -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
+}
+footer.menuFooter {
+    font-family: 'Lato', sans-serif;
+    width: 100%;
+    padding:1em 0;
+    font-size: .8rem;   
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+footer.menuFooter > p {
+    margin:.25em 0;
+    color: #929294;
+}
+footer.menuFooter > p > a {
+    text-decoration: none;
+    color: #929294;
+}
+button.navButton {
+    transition: 300ms;
+}
+.ring-indigo-500:focus {
+    --tw-ring-color:#fbb03b !important;
 }
 .hover\:border-gray-300:hover {
   --tw-border-opacity: 1;
@@ -2128,16 +2224,16 @@ h1.logo-text {
     margin-left: 1.5rem;
   }
 
+  .sm\:mt-8 {
+    margin-top: 2rem;
+  }
+
   .sm\:mt-12 {
     margin-top: 3rem;
   }
 
   .sm\:mt-5 {
     margin-top: 1.25rem;
-  }
-
-  .sm\:mt-8 {
-    margin-top: 2rem;
   }
 
   .sm\:ml-0 {
@@ -2409,6 +2505,11 @@ h1.logo-text {
     padding-right: 1rem;
   }
 
+  .md\:text-lg {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
+
   .md\:text-6xl {
     font-size: 3.75rem;
     line-height: 1;
@@ -2416,11 +2517,6 @@ h1.logo-text {
 
   .md\:text-xl {
     font-size: 1.25rem;
-    line-height: 1.75rem;
-  }
-
-  .md\:text-lg {
-    font-size: 1.125rem;
     line-height: 1.75rem;
   }
 }
@@ -2512,3 +2608,4 @@ h1.logo-text {
     padding-bottom: 8rem;
   }
 }
+

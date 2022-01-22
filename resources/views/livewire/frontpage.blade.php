@@ -36,7 +36,42 @@
             </div>
             <div class="hidden md:block md:ml-10 md:pr-4 md:space-x-8">
               @foreach ($menuLinks as $link)
-                <a href="{{ url('/'.$link->slug) }}" class="font-medium text-indigo-600 hover:text-indigo-500">{{ $link->label }}</a>
+
+                @php
+                  $hasSubLinks = false;
+                @endphp
+                @foreach ($subMenuLinks as $subLink)
+                    @if ($subLink->menuid == $link->id)
+                      @php $hasSubLinks = true; @endphp
+                    @endif
+                    @php break; @endphp
+                @endforeach
+
+                <span x-data="{ open{{ $link->label }}: false, {{ $link->label }}PageLoad: true}">
+                  @if ($hasSubLinks)
+                    <a @click.prevent="{{ $link->label }}PageLoad = false, open{{ $link->label }} = !open{{ $link->label }}" class="font-medium navMenu-link-desktop">{{ $link->label }}</a>
+                      <i :class="{ 'hide': open{{ $link->label }} }" class="fas fa-angle-right text-gray-400 hover:text-gray-500"></i>
+                      <i :class="{ 'hide': !open{{ $link->label }}, 'active': open{{ $link->label }} }" class="fas fa-angle-down text-gray-400 hover:text-gray-500"></i>
+                    </a>
+                  @else
+                    <a href="{{ url('/'.$link->slug) }}" class="font-medium navMenu-link-desktop">{{ $link->label }}</a>
+                  @endif
+                </span>
+                @if ($hasSubLinks)
+                  <div class="absolute z-10 -ml-4 mt-3 transform px-2 w-screen max-w-md sm:px-0 lg:ml-0 lg:left-1/2 lg:-translate-x-1/2">
+                    <div class="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
+                      <div class="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">
+                        <a href="#" class="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50">
+                          <div class="ml-4">
+                            <p class="text-base font-medium text-gray-900">
+                              Test link
+                            </p>
+                          </div>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                @endif
               @endforeach        
             </div>
           </nav>
@@ -84,19 +119,26 @@
 
                 <!-- also need to remove the link if it contains sublinks and add js to toggle the submenu -->
 
-                <div class="navMenu-link-container">
+                <div class="navMenu-link-container" x-data="{ open{{ $link->label }}: false, {{ $link->label }}PageLoad: true}">
                   @if ($hasSubLinks)
-                    <a class="navMenu-link block"><span class="menuLinkStyle">{{ $link->label }}</span>
-                      <i class="fas fa-angle-down text-gray-400 hover:text-gray-500"></i>
+                    
+                    <a @click.prevent="{{ $link->label }}PageLoad = false, open{{ $link->label }} = !open{{ $link->label }}" class="navMenu-link block"><span :class="{ 'active': open{{ $link->label }} }" class="menuLinkStyle">{{ $link->label }}</span>
+                      <i :class="{ 'hide': open{{ $link->label }} }" class="fas fa-angle-right text-gray-400 hover:text-gray-500"></i>
+                      <i :class="{ 'hide': !open{{ $link->label }}, 'active': open{{ $link->label }} }" class="fas fa-angle-down text-gray-400 hover:text-gray-500"></i>
                     </a>
+
                   @else
                     <a href="{{ url('/'.$link->slug) }}" class="navMenu-link block"><span class="menuLinkStyle">{{ $link->label }}</span></a>
                   @endif
-                  @foreach ($subMenuLinks as $subLink)
-                    @if ($subLink->menuid == $link->id)
-                      <a href="{{ url('/'.$subLink->slug) }}" class="navMenu-subLink block">{{ $subLink->label }}</a>
-                    @endif
-                  @endforeach
+                  @if ($hasSubLinks)
+                    <div class="subMenu-container" :class="{ 'hide': {{ $link->label }}PageLoad, 'hideSubMenu': !open{{ $link->label }}, 'showSubMenu': open{{ $link->label }} }">
+                      @foreach ($subMenuLinks as $subLink)
+                        @if ($subLink->menuid == $link->id)
+                          <a href="{{ url('/'.$subLink->slug) }}" class="navMenu-subLink block">{{ $subLink->label }}</a>
+                        @endif
+                      @endforeach
+                    </div>
+                  @endif
                 </div>
               @endforeach
             </div>
@@ -109,7 +151,7 @@
               </div>
             </div>
 
-            <footer class="menuFooter">
+            <footer class="mt-5 menuFooter">
               <p>© 2022 Kim Painting. All rights reserved.</p>
               <p>Built by <a href="https://dallan.ca/">Dallan</a><p>
             </footer>

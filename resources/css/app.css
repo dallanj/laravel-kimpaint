@@ -57,7 +57,19 @@ div.navMenu-link-container {
     border-bottom: 1px #F2F2F2 solid;
 }
 
+a.navMenu-link-desktop {
+    font-family: 'Lato', sans-serif !important;
+    --tw-text-opacity: 1;
+    color: rgb(107 114 128 / var(--tw-text-opacity));
+}
+a.navMenu-link-desktop:hover {
+    transition: 500ms;
+    /* --tw-text-opacity: 1; */
+    color: #454546;
+}
+
 a.navMenu-link {
+    color: #454546;
     font-family: 'Lato', sans-serif !important;
     font-size:1.25rem !important;
     font-weight: bold !important;
@@ -75,16 +87,29 @@ a.navMenu-link > i {
     text-decoration: none;
 }
 
+span.active, i.active {
+    transition: 500ms;
+    color:#fbb03b !important;
+}
+span.active {
+    text-decoration: underline;
+}
+
 span.menuLinkStyle:hover {
     color: #fbb03b;
     text-decoration: underline; 
 }
 
 a.navMenu-subLink {
+    color: #454546;
     font-family: 'Lato', sans-serif !important;
     font-size: 1.125rem !important;
     padding:.5em 1em;
     width: 100%;
+    transition: 500ms;
+}
+a.navMenu-subLink:hover {
+    color: #FCBD58;
 }
 
 .hide {
@@ -99,6 +124,38 @@ a.navMenu-subLink {
 .hideMenu {
     animation: slideOutRight; /* referring directly to the animation's @keyframe declaration */
     /* animation-delay: 0s; */
+    animation-duration: .5s; /* don't forget to set a duration! */
+    animation-fill-mode: forwards;
+}
+
+@keyframes dropdown {
+    0% {max-height:0px;}
+    100% {max-height:1000px;}
+}
+@keyframes moveup {
+    0% {max-height: 1000px;}
+    100% {padding:0;max-height:0px;}
+}
+
+@keyframes displayNone {
+    0% {opacity: 0;}
+    100% {opacity: 0;}
+}
+
+.subMenu-container {
+    overflow:hidden;
+    padding-bottom:1em;
+}
+
+.hideSubMenu {
+    animation-name: moveup, displayNone; /* referring directly to the animation's @keyframe declaration */
+    animation-delay: 0s, .5s;
+    animation-duration: .5s, 0s; /* don't forget to set a duration! */
+    animation-fill-mode: forwards;
+}
+.showSubMenu {
+    max-height:0px;
+    animation-name: dropdown; /* referring directly to the animation's @keyframe declaration */
     animation-duration: .5s; /* don't forget to set a duration! */
     animation-fill-mode: forwards;
 }

@@ -29,7 +29,6 @@
 }
 
 
-
 h1.logo-text {
     font-family: 'Rubik', sans-serif;
     font-size:1.5rem;
@@ -296,4 +295,12 @@ svg.wave {
     position:absolute;
     bottom:0;
     left:0;
+}
+
+/* footer */
+.bg-footer-bg {
+    background-color: #f2ece4;
+}
+.bg-footer-bg-2 {
+    background-color: #fbb03b !important;
 }

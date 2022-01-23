@@ -34,6 +34,7 @@
                 </div>
               </div>
             </div>
+            <!-- desktp nav menu -->
             <div class="hidden md:block md:ml-10 md:pr-4 md:space-x-8">
               @foreach ($menuLinks as $link)
 
@@ -44,34 +45,41 @@
                     @if ($subLink->menuid == $link->id)
                       @php $hasSubLinks = true; @endphp
                     @endif
-                    @php break; @endphp
                 @endforeach
 
-                <span x-data="{ open{{ $link->label }}: false, {{ $link->label }}PageLoad: true}">
+                <span class="pb-3" x-data="{ open{{ $link->id }}: false, PageLoad{{ $link->id }}: true }" @mouseleave="open{{ $link->id }} = false">
                   @if ($hasSubLinks)
-                    <a @click.prevent="{{ $link->label }}PageLoad = false, open{{ $link->label }} = !open{{ $link->label }}" class="font-medium navMenu-link-desktop">{{ $link->label }}</a>
-                      <i :class="{ 'hide': open{{ $link->label }} }" class="fas fa-angle-right text-gray-400 hover:text-gray-500"></i>
-                      <i :class="{ 'hide': !open{{ $link->label }}, 'active': open{{ $link->label }} }" class="fas fa-angle-down text-gray-400 hover:text-gray-500"></i>
-                    </a>
+                    <button class="navMenu-link-desktop" @mouseover="PageLoad{{ $link->id }} = false, open{{ $link->id }} = true" class="font-medium navMenu-link-desktop">{{ $link->label }}
+                      <i :class="{ 'hide': open{{ $link->id }} === true }" class="ml-2 fas fa-angle-down text-gray-400 hover:text-gray-500"></i>
+                      <i :class="{ 'hide': open{{ $link->id }} === false }" class="ml-2 fas fa-angle-up text-gray-400 hover:text-gray-500"></i>
+                    </button>
                   @else
                     <a href="{{ url('/'.$link->slug) }}" class="font-medium navMenu-link-desktop">{{ $link->label }}</a>
                   @endif
-                </span>
+                
                 @if ($hasSubLinks)
-                  <div class="absolute z-10 -ml-4 mt-3 transform px-2 w-screen max-w-md sm:px-0 lg:ml-0 lg:left-1/2 lg:-translate-x-1/2">
+                  <div x-show="open{{ $link->id }}" :class="{ 'hide': PageLoad{{ $link->id }}, 'hideSubMenu': open{{ $link->id }} === false, 'showSubMenu': open{{ $link->id }} === true }" class="absolute z-10 -ml-4 mt-3 transform px-2 w-screen max-w-md sm:px-0 lg:ml-0 lg:left-1/2 lg:-translate-x-1/2">
                     <div class="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
-                      <div class="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">
-                        <a href="#" class="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50">
-                          <div class="ml-4">
-                            <p class="text-base font-medium text-gray-900">
-                              Test link
-                            </p>
-                          </div>
-                        </a>
+                      <div class="relative grid gap-6 bg-white px-5 py-6">
+    
+
+                        @foreach ($subMenuLinks as $subLink)
+                          @if ($subLink->menuid == $link->id)
+                            <a href="{{ url('/'.$subLink->slug) }}" class="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50">
+                              <div class="ml-4">
+                                <p class="text-base font-medium text-gray-900">
+                                  {{ $subLink->label }}
+                                </p>
+                              </div>
+                            </a>
+                          @endif
+                        @endforeach
+
                       </div>
                     </div>
                   </div>
                 @endif
+                </span>
               @endforeach        
             </div>
           </nav>
@@ -97,7 +105,6 @@
               <div class="-mr-2">
                 <button @click.prevent="open = !open" type="button" class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 navButton hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
                   <span class="sr-only">Close main menu</span>
-                  <!-- Heroicon name: outline/x -->
                   <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                   </svg>
@@ -114,24 +121,23 @@
                     @if ($subLink->menuid == $link->id)
                       @php $hasSubLinks = true; @endphp
                     @endif
-                    @php break; @endphp
                 @endforeach
 
                 <!-- also need to remove the link if it contains sublinks and add js to toggle the submenu -->
 
-                <div class="navMenu-link-container" x-data="{ open{{ $link->label }}: false, {{ $link->label }}PageLoad: true}">
+                <div class="navMenu-link-container" x-data="{ open{{ $link->id }}: false, PageLoad{{ $link->id }}: true}">
                   @if ($hasSubLinks)
                     
-                    <a @click.prevent="{{ $link->label }}PageLoad = false, open{{ $link->label }} = !open{{ $link->label }}" class="navMenu-link block"><span :class="{ 'active': open{{ $link->label }} }" class="menuLinkStyle">{{ $link->label }}</span>
-                      <i :class="{ 'hide': open{{ $link->label }} }" class="fas fa-angle-right text-gray-400 hover:text-gray-500"></i>
-                      <i :class="{ 'hide': !open{{ $link->label }}, 'active': open{{ $link->label }} }" class="fas fa-angle-down text-gray-400 hover:text-gray-500"></i>
+                    <a @click.prevent="PageLoad{{ $link->id }} = false, open{{ $link->id }} = !open{{ $link->id }}" class="navMenu-link block"><span :class="{ 'active': open{{ $link->id }} }" class="menuLinkStyle">{{ $link->label }}</span>
+                      <i :class="{ 'hide': open{{ $link->id }} }" class="fas fa-angle-right text-gray-400 hover:text-gray-500"></i>
+                      <i :class="{ 'hide': !open{{ $link->id }}, 'active': open{{ $link->id }} }" class="fas fa-angle-down text-gray-400 hover:text-gray-500"></i>
                     </a>
 
                   @else
                     <a href="{{ url('/'.$link->slug) }}" class="navMenu-link block"><span class="menuLinkStyle">{{ $link->label }}</span></a>
                   @endif
                   @if ($hasSubLinks)
-                    <div class="subMenu-container" :class="{ 'hide': {{ $link->label }}PageLoad, 'hideSubMenu': !open{{ $link->label }}, 'showSubMenu': open{{ $link->label }} }">
+                    <div class="subMenu-container" :class="{ 'hide': PageLoad{{ $link->id }}, 'hideSubMenu': !open{{ $link->id }}, 'showSubMenu': open{{ $link->id }} }">
                       @foreach ($subMenuLinks as $subLink)
                         @if ($subLink->menuid == $link->id)
                           <a href="{{ url('/'.$subLink->slug) }}" class="navMenu-subLink block">{{ $subLink->label }}</a>
@@ -163,16 +169,16 @@
     
       <main class="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
         <div class="sm:text-center lg:text-left">
-          <h1 class="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
-            <span class="block xl:inline">A fresh coat,</span>
-            <span class="block text-orange xl:inline">for a fresh start</span>
+          <h1 class="hero-title text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
+            <span class="fadeIn delay-1 block xl:inline">A fresh coat,</span>
+            <span class="fadeIn delay-2 slideInRight block text-orange xl:inline">for a fresh start</span>
           </h1>
-          <p class="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
+          <p class="body-text mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
             Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua.
           </p>
           <div class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
-            <div class="rounded-md shadow">
-              <a href="#" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-orange md:py-4 md:text-lg md:px-10">
+            <div class="bounce rounded-md shadow">
+              <a href="#" class="body-text w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-orange md:py-4 md:text-lg md:px-10">
                 Get your free paint quote
               </a>
             </div>
@@ -181,6 +187,7 @@
                 Live demo
               </a>
             </div> -->
+
           </div>
         </div>
       </main>
@@ -190,3 +197,206 @@
     <img class="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full" src=" {{ 'img/hero.png' }}" alt="">
   </div>
 </div>
+
+
+<!-- About Us -->
+<div class="flex flex-col bg-gray-50">
+  <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 lg:items-center lg:justify-between">
+    <h2 class="about-us-title text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl lg:text-5xl">
+      <span class="block">We're ready to paint</span>
+      <span class="block text-orange">Across the entire Niagara region.</span>
+    </h2>
+    <div class="sm:justify-center mt-8 flex md:mt-8 lg:mt-12 lg:flex-shrink-0">
+      <div class="inline-flex rounded-md shadow">
+        <a href="#" class="body-text inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-orange">
+          Call us now (905-351-7947)
+        </a>
+      </div>
+      <div class="ml-3 inline-flex rounded-md shadow">
+        <a href="#" class="body-text inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-orange bg-whitebutton">
+          Email us
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- services -->
+<div class="py-12 bg-white body-text">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="lg:text-center">
+      <h2 class="text-base text-orange font-semibold tracking-wide uppercase body-text">Services</h2>
+      <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+        This is what we can do
+      </p>
+      <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
+        Lorem ipsum dolor sit amet consect adipisicing elit. Possimus magnam voluptatum cupiditate veritatis in accusamus quisquam.
+      </p>
+    </div>
+
+    <div class="mt-10">
+      <dl class="space-y-10 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10">
+        <div class="relative">
+          <dt>
+            <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-orange text-white text-2xl">
+              <i class="fas fa-home"></i>
+            </div>
+            <p class="ml-16 text-lg leading-6 font-medium text-gray-900">Residential</p>
+          </dt>
+          <dd class="mt-2 ml-16 text-base text-gray-500">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.
+          </dd>
+        </div>
+
+        <div class="relative">
+          <dt>
+            <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-orange text-2xl text-white">
+              <i class="fas fa-building"></i>
+            </div>
+            <p class="ml-16 text-lg leading-6 font-medium text-gray-900">Commercial</p>
+          </dt>
+          <dd class="mt-2 ml-16 text-base text-gray-500">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.
+          </dd>
+        </div>
+
+        <div class="relative">
+          <dt>
+            <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-orange text-2xl text-white">
+              <i class="fas fa-brush"></i>
+            </div>
+            <p class="ml-16 text-lg leading-6 font-medium text-gray-900">Interior & exterior painting</p>
+          </dt>
+          <dd class="mt-2 ml-16 text-base text-gray-500">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.
+          </dd>
+        </div>
+
+        <div class="relative">
+          <dt>
+            <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-orange text-2xl text-white">            
+              <i class="fas fa-pencil-alt"></i>
+            </div>
+            <p class="ml-16 text-lg leading-6 font-medium text-gray-900">Drywall</p>
+          </dt>
+          <dd class="mt-2 ml-16 text-base text-gray-500">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.
+          </dd>
+        </div>
+
+        <div class="relative">
+          <dt>
+            <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-orange text-2xl text-white">       
+              <i class="fas fa-hammer"></i>
+            </div>
+            <p class="ml-16 text-lg leading-6 font-medium text-gray-900">Desk & fence installation</p>
+          </dt>
+          <dd class="mt-2 ml-16 text-base text-gray-500">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.
+          </dd>
+        </div>
+
+        <div class="relative">
+          <dt>
+            <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-orange text-2xl text-white">            
+              <i class="fas fa-bolt"></i>
+            </div>
+            <p class="ml-16 text-lg leading-6 font-medium text-gray-900">Power washing & stain</p>
+          </dt>
+          <dd class="mt-2 ml-16 text-base text-gray-500">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.
+          </dd>
+        </div>
+      </dl>
+    </div>
+  </div>
+</div>
+
+<!-- blogs and gallery -->
+<div class="py-12 body-text bg-gray-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="lg:text-center">
+      <h2 class="text-base text-orange font-semibold tracking-wide uppercase body-text">Portfolio</h2>
+      <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+        Previous work and blogs
+      </p>
+      <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
+        Lorem ipsum dolor sit amet consect adipisicing elit. Possimus magnam voluptatum cupiditate veritatis in accusamus quisquam.
+      </p>
+    </div>
+
+    <!-- blogs -->
+    <div class="mt-10">
+        <!-- <div class="relative flex gap-8 flex-wrap w-full"> -->
+        <div class="relative grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-8">
+          <!-- blog post example -->
+          <div class="portfolio-card">
+              <!-- image -->
+              <img class="portfolio-card-img" src=" {{ 'img/hero.png' }}" alt="Photo1"/>
+              <p class="pt-4 portfolio-card-type">Blog</p>
+              <!-- title -->
+              <h2 class="portfolio-card-title">Title of post</h2>
+              <!-- short description -->
+              <p class="portfolio-card-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vel blandit purus. Proin non auctor tellus.</p>
+              <!-- read more -->
+              <p class="portfolio-card-end">
+                  READ MORE
+                  <i class="fas fa-angle-double-right"></i>
+              </p>
+          </div>
+
+          <!-- gallery image example -->
+          <div class="portfolio-card">
+              <!-- image -->
+              <img class="portfolio-card-img" src=" {{ 'img/hero2.jpg' }}" alt="Photo1"/>
+              <p class="pt-4 portfolio-card-type">Gallery</p>
+              <!-- title -->
+              <h2 class="portfolio-card-title">Title of image</h2>
+              <!-- short description -->
+              <!-- read more -->
+              <p class="portfolio-card-end">
+                  VIEW MORE
+                  <i class="fas fa-angle-double-right"></i>
+              </p>
+          </div>
+
+          <!-- blog post example -->
+          <div class="portfolio-card">
+              <!-- image -->
+              <img class="portfolio-card-img" src=" {{ 'img/hero3.jpg' }}" alt="Photo1"/>
+              <p class="pt-4 portfolio-card-type">Blog</p>
+              <!-- title -->
+              <h2 class="portfolio-card-title">Title of post</h2>
+              <!-- short description -->
+              <p class="portfolio-card-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vel blandit purus. Proin non auctor tellus.</p>
+              <!-- read more -->
+              <p class="portfolio-card-end">
+                  READ MORE
+                  <i class="fas fa-angle-double-right"></i>
+              </p>
+          </div>
+
+          <!-- gallery image example -->
+          <div class="portfolio-card">
+              <!-- image -->
+              <img class="portfolio-card-img" src=" {{ 'img/hero.png' }}" alt="Photo1"/>
+              <p class="pt-4 portfolio-card-type">Gallery</p>
+              <!-- title -->
+              <h2 class="portfolio-card-title">Title of image</h2>
+              <!-- short description -->
+              <!-- read more -->
+              <p class="portfolio-card-end">
+                  VIEW MORE
+                  <i class="fas fa-angle-double-right"></i>
+              </p>
+          </div>
+
+        </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- contact us -->
+

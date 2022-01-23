@@ -77,6 +77,11 @@ class NavigationMenus extends Component
         return NavigationMenu::paginate(5);
     }
 
+    public function readAll()
+    {
+        return NavigationMenu::all();
+    }
+
     public function createShowModal()
     {
         $this->resetValidation();
@@ -123,6 +128,7 @@ class NavigationMenus extends Component
     {
         return view('livewire.navigation-menus', [
             'data' => $this->read(),
+            'allData' => $this->readAll(),
         ]);
         
     }

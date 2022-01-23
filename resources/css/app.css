@@ -21,6 +21,13 @@
     background-color: #FCBD58 !important;
 }
 
+.bg-whitebutton {
+    background-color: white;
+}
+.bg-whitebutton:hover {
+    background-color: #FFFAF3 !important;
+}
+
 
 
 h1.logo-text {
@@ -57,12 +64,16 @@ div.navMenu-link-container {
     border-bottom: 1px #F2F2F2 solid;
 }
 
-a.navMenu-link-desktop {
+div.navMenu-links-container {
+    position: relative;
+}
+
+a.navMenu-link-desktop, button.navMenu-link-desktop {
     font-family: 'Lato', sans-serif !important;
     --tw-text-opacity: 1;
     color: rgb(107 114 128 / var(--tw-text-opacity));
 }
-a.navMenu-link-desktop:hover {
+a.navMenu-link-desktop:hover, button.navMenu-link-desktop:hover {
     transition: 500ms;
     /* --tw-text-opacity: 1; */
     color: #454546;
@@ -148,13 +159,13 @@ a.navMenu-subLink:hover {
 }
 
 .hideSubMenu {
-    animation-name: moveup, displayNone; /* referring directly to the animation's @keyframe declaration */
-    animation-delay: 0s, .5s;
-    animation-duration: .5s, 0s; /* don't forget to set a duration! */
+    animation-name: moveup; /* referring directly to the animation's @keyframe declaration */
+    /* animation-delay: 0s; */
+    animation-duration: .5s; /* don't forget to set a duration! */
     animation-fill-mode: forwards;
 }
 .showSubMenu {
-    max-height:0px;
+    /* max-height:0px; */
     animation-name: dropdown; /* referring directly to the animation's @keyframe declaration */
     animation-duration: .5s; /* don't forget to set a duration! */
     animation-fill-mode: forwards;
@@ -187,3 +198,93 @@ button.navButton {
 .ring-indigo-500:focus {
     --tw-ring-color:#fbb03b !important;
 }
+
+.fadeIn {
+    animation: fadeIn;
+    opacity: 0;
+    animation-duration: 2s; /* don't forget to set a duration! */
+    animation-fill-mode: forwards;
+}
+.delay-1 {
+    animation-delay:.5s;
+}
+.delay-2 {
+    animation-delay:1.5s;
+}
+
+.bounce {
+    animation: bounce;
+    animation-duration: 1s; /* don't forget to set a duration! */
+    animation-delay:2.5s;
+}
+
+.hero-title {
+    font-family: 'Lato', sans-serif !important;
+}
+
+.body-text {
+    font-family: 'Lato', sans-serif !important;
+}
+
+/* ABOUT US */
+
+.about-us-title {
+    /* font-size: 2rem; */
+    /* line-height: 2.75rem !important; */
+    font-family: 'Lato', sans-serif !important;
+}
+
+/* blogs and gallery front page */
+.portfolio-card {
+    background-color: white;
+    min-height: 400px;
+    /* min-width:200px; */
+    /* max-width: 285px; */
+    width: 100%;
+    padding:.75em;
+    box-shadow: 0 2px 10px 0 rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    transition: 150ms;
+    cursor: pointer;    
+}
+.portfolio-card:hover {
+    transform: scale(1.05);
+}
+@media (max-width: 768px) {
+    .portfolio-card {
+        max-width:285px;
+        margin: 0 auto;
+    }
+}
+
+img.portfolio-card-img {
+    width:100%;
+    display: block;
+}
+p.portfolio-card-type {
+    color: #454546;
+}
+h2.portfolio-card-title {
+    padding:.25em 0em .75em 0em;
+    color:black;
+    font-size:1.5rem;
+    font-weight:700;
+}
+p.portfolio-card-desc {
+    color:black;
+    margin: 0;
+    font-family: 'Lato', sans-serif;
+}
+p.portfolio-card-end {
+    color:#fbb03b;
+    width: 100%;
+    margin: 0;
+    margin-top: auto;
+    display: flex;   
+}
+p.portfolio-card-end > i {
+    margin-left:auto;
+    font-size: 1.25rem;
+}
+

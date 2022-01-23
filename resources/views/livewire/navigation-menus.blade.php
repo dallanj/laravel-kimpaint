@@ -45,9 +45,9 @@
                                             </a>
                                         </td>
                                         <td class="px-6 py-4 text-sm whitespace-no-wrap">
-                                            @foreach ($data as $poo)
-                                                @if ($item->menuid == $poo->id)
-                                                    {{ $poo->label }}
+                                            @foreach ($allData as $subitem)
+                                                @if ($item->menuid == $subitem->id)
+                                                    {{ $subitem->label }}
                                                 @endif
                                             @endforeach
                                         </td>
@@ -74,14 +74,22 @@
         </div>
     </div>
 
+    
+
     {{ $data->links() }}
+
+    
+
+    
 
     <!-- Modal Form -->
     <x-jet-dialog-modal wire:model="modalFormVisible">
             <x-slot name="title">
-                
+                @if ($modelId)
+                    {{ __('Update navigation menu item') }}
+                @else
                     {{ __('Create navigation menu item') }}
-                
+                @endif
             </x-slot>
 
             <x-slot name="content">
@@ -125,7 +133,7 @@
                     <select wire:model="menuid" class="block appearance-none w-full bg-gray-100 border border-gray-200 text-gray-700 py-3 px-4 pr-8 round leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
                         <option value="0">None</option>
                         
-                        @foreach ($data as $item)
+                        @foreach ($allData as $item)
                             @if ($item->type === 'Menu')
                                 <option value="{{ $item->id }}">{{ $item->label }}</option>
                             @endif
@@ -145,11 +153,11 @@
 
                 @if ($modelId)
                     <x-jet-button class="ml-3" wire:click="update" wire:loading.attr="disabled">
-                        {{ __('Update Page') }}
+                        {{ __('Update Menu Item') }}
                     </x-jet-button>
                 @else
                     <x-jet-button class="ml-3" wire:click="create" wire:loading.attr="disabled">
-                        {{ __('Create Page') }}
+                        {{ __('Create New Menu Item') }}
                     </x-jet-button>
                 @endif
             </x-slot>

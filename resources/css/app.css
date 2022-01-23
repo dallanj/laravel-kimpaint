@@ -288,3 +288,12 @@ p.portfolio-card-end > i {
     font-size: 1.25rem;
 }
 
+/* cta  */
+.bg-cta-beige {
+    background-color: #f7f6f2;
+}
+svg.wave {
+    position:absolute;
+    bottom:0;
+    left:0;
+}

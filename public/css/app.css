@@ -2148,6 +2148,14 @@ p.portfolio-card-end > i {
     margin-left:auto;
     font-size: 1.25rem;
 }
+.bg-cta-beige {
+    background-color: #f7f6f2;
+}
+svg.wave {
+    position:absolute;
+    bottom:0;
+    left:0;
+}
 .hover\:border-gray-300:hover {
   --tw-border-opacity: 1;
   border-color: rgb(209 213 219 / var(--tw-border-opacity));
@@ -2896,5 +2904,4 @@ p.portfolio-card-end > i {
     padding-bottom: 8rem;
   }
 }
-
 

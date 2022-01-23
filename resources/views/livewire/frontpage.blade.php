@@ -328,7 +328,6 @@
 
     <!-- blogs -->
     <div class="mt-10">
-        <!-- <div class="relative flex gap-8 flex-wrap w-full"> -->
         <div class="relative grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-8">
           <!-- blog post example -->
           <div class="portfolio-card">
@@ -398,5 +397,25 @@
   </div>
 </div>
 
+<!-- CTA -->
+<div class="flex flex-col bg-cta-beige relative overflow-hidden">
+  <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 lg:items-center lg:justify-between position:relative z-10">
+    <h2 class="about-us-title text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl lg:text-5xl">
+      <span class="block">How can we help you?</span>
+      <span class="block text-orange">Book a free price quote below.</span>
+    </h2>
+    <div class="sm:justify-center mt-8 flex md:mt-8 lg:mt-12 lg:flex-shrink-0">
+      <div class="inline-flex rounded-md shadow">
+        <a href="#" class="body-text inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-orange">
+          Call us now (905-351-7947)
+        </a>
+      </div>
+    </div>
+  </div>
+  <svg class="wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#f2ece4" fill-opacity="1" d="M0,224L80,218.7C160,213,320,203,480,218.7C640,235,800,277,960,250.7C1120,224,1280,128,1360,80L1440,32L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"></path>
+  </svg>
+</div>
+
 <!-- contact us -->
 
+<!-- footer -->

@@ -5,15 +5,21 @@
     <p>Current title is {{ $title }}</p>
     <p>Current content is {!! $content !!}</p>
 </div> -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<!-- <header class="headerFixed hidden">
+  <h1 class="logo-text"><strong>KIMPAINT</strong></h1>
+</header> -->
 
 <div class="relative bg-white overflow-hidden">
+  <div class="headerFixedBg hidden"></div>
   <div class="max-w-7xl mx-auto">
-    <div class="relative z-10 pb-8 bg-white sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
+    <div class="relative z-20 pb-8 bg-white sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
       <svg class="hidden lg:block absolute right-0 inset-y-0 h-full w-48 text-white transform translate-x-1/2" fill="currentColor" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
         <polygon points="50,0 100,0 50,100 0,100" />
       </svg>
 
-      <div x-data="{ open: false, onPageLoad:false }">
+      <div class="header h-full" x-data="{ open: false, onPageLoad:false }">
         <div class="relative pt-6 px-4 sm:px-6 lg:px-8">
           <nav class="relative flex items-center justify-between sm:h-10 lg:justify-start" aria-label="Global">
             <div class="flex items-center flex-grow flex-shrink-0 lg:flex-grow-0">
@@ -24,7 +30,7 @@
                   <h1 class="logo-text"><strong>KIMPAINT</strong></h1>
                 </a>
                 <div class="-mr-2 flex items-center md:hidden">
-                  <button @click.prevent="open = !open, onPageLoad = true" type="button" class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 navButton hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500" aria-expanded="false">
+                  <button id="openNavMenu" @click.prevent="open = !open, onPageLoad = true" type="button" class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 navButton hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500" aria-expanded="false">
                     <span class="sr-only">Open main menu</span>
                     <!-- Heroicon name: outline/menu -->
                     <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -95,7 +101,7 @@
             From: "opacity-100 scale-100"
             To: "opacity-0 scale-95"
         -->
-        <div :class="{ 'hide': !onPageLoad, 'hideMenu': !open, 'showMenu': open }" class="hide navMenu absolute z-10 top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden">
+        <div :class="{ 'hide': !onPageLoad, 'hideMenu': !open, 'showMenu': open }" class="hide navMenu absolute z-20 top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden">
           <!-- <div class="rounded-lg shadow-md bg-white ring-1 ring-black ring-opacity-5 overflow-hidden"> -->
             <div class="px-5 pt-4 flex items-center justify-between">
               <div>
@@ -103,7 +109,7 @@
                 <h1 class="logo-text"><strong>KIMPAINT</strong></h1>
               </div>
               <div class="-mr-2">
-                <button @click.prevent="open = !open" type="button" class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 navButton hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+                <button id="closeNavMenu" @click.prevent="open = !open" type="button" class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 navButton hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
                   <span class="sr-only">Close main menu</span>
                   <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
@@ -199,9 +205,9 @@
 </div>
 
 
-<!-- About Us -->
-<div class="flex flex-col bg-gray-50">
-  <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 lg:items-center lg:justify-between">
+<!-- CTA -->
+<div class="flex flex-col .bg-footer-bg relative bg-cta-beige overflow-hidden">
+  <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 lg:items-center lg:justify-between relative z-10">
     <h2 class="about-us-title text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl lg:text-5xl">
       <span class="block">We're ready to paint</span>
       <span class="block text-orange">Across the entire Niagara region.</span>
@@ -219,7 +225,32 @@
       </div>
     </div>
   </div>
+  <svg class="wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#f2ece4" fill-opacity="1" d="M0,224L80,218.7C160,213,320,203,480,218.7C640,235,800,277,960,250.7C1120,224,1280,128,1360,80L1440,32L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"></path>
+  </svg>
 </div>
+
+<!-- About us -->
+<div class="py-12 bg-white body-text bg-footer-bg">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="">
+      <h2 class="lg:text-center text-base text-orange font-semibold tracking-wide uppercase body-text">About us</h2>
+      <p class="lg:text-center mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+        This is who we are
+      </p>
+      <p class="mt-4 text-xl text-gray-500 lg:mx-auto">
+      Lorem ipsum dolor sit amet consect adipisicing elit. Possimus magnam voluptatum cupiditate veritatis in accusamus quisquam.
+      Lorem ipsum dolor sit amet consect adipisicing elit. Possimus magnam voluptatum cupiditate veritatis in accusamus quisquam.
+      Lorem ipsum dolor sit amet consect adipisicing elit. Possimus magnam voluptatum cupiditate veritatis in accusamus quisquam.
+      </p>
+      <p class="mt-4 text-xl text-gray-500 lg:mx-auto">
+        Lorem ipsum dolor sit amet consect adipisicing elit. Possimus magnam voluptatum cupiditate veritatis in accusamus quisquam.
+        Lorem ipsum dolor sit amet consect adipisicing elit. Possimus magnam voluptatum cupiditate veritatis in accusamus quisquam.
+      </p>
+    </div>
+  </div>
+</div>
+
+
 
 
 <!-- services -->
@@ -327,7 +358,7 @@
     </div>
 
     <!-- blogs -->
-    <div class="mt-10">
+    <div class="mt-10 hidden md:block">
         <div class="relative grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-8">
           <!-- blog post example -->
           <div class="portfolio-card">
@@ -393,6 +424,92 @@
 
         </div>
     </div>
+
+    <!-- slider images -->
+    <div class="mt-10 md:hidden overflow-hidden">
+      <div class="slider">
+
+        <button class="btn-slide prev"><i class="fas fa-3x fa-chevron-left"></i></button>
+        <button class="btn-slide next"><i class="fas fa-3x fa-chevron-right"></i></button>
+        
+        <div class="slide">
+            <!-- blog post example -->
+            <div class="portfolio-card">
+              <!-- image -->
+              <img class="portfolio-card-img" src=" {{ 'img/hero.png' }}" alt="Photo1"/>
+              <p class="pt-4 portfolio-card-type">Blog</p>
+              <!-- title -->
+              <h2 class="portfolio-card-title">Title of post</h2>
+              <!-- short description -->
+              <p class="portfolio-card-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vel blandit purus. Proin non auctor tellus.</p>
+              <!-- read more -->
+              <p class="portfolio-card-end">
+                  READ MORE
+                  <i class="fas fa-angle-double-right"></i>
+              </p>
+          </div>
+        </div>
+
+        <div class="slide">
+          <!-- gallery image example -->
+          <div class="portfolio-card">
+              <!-- image -->
+              <img class="portfolio-card-img" src=" {{ 'img/hero2.jpg' }}" alt="Photo1"/>
+              <p class="pt-4 portfolio-card-type">Gallery</p>
+              <!-- title -->
+              <h2 class="portfolio-card-title">Title of image</h2>
+              <!-- short description -->
+              <!-- read more -->
+              <p class="portfolio-card-end">
+                  VIEW MORE
+                  <i class="fas fa-angle-double-right"></i>
+              </p>
+          </div>
+        </div>
+
+        <div class="slide">
+          <!-- blog post example -->
+          <div class="portfolio-card">
+              <!-- image -->
+              <img class="portfolio-card-img" src=" {{ 'img/hero3.jpg' }}" alt="Photo1"/>
+              <p class="pt-4 portfolio-card-type">Blog</p>
+              <!-- title -->
+              <h2 class="portfolio-card-title">Title of post</h2>
+              <!-- short description -->
+              <p class="portfolio-card-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vel blandit purus. Proin non auctor tellus.</p>
+              <!-- read more -->
+              <p class="portfolio-card-end">
+                  READ MORE
+                  <i class="fas fa-angle-double-right"></i>
+              </p>
+          </div>
+        </div>
+
+        <div class="slide">
+          <!-- gallery image example -->
+          <div class="portfolio-card">
+              <!-- image -->
+              <img class="portfolio-card-img" src=" {{ 'img/hero.png' }}" alt="Photo1"/>
+              <p class="pt-4 portfolio-card-type">Gallery</p>
+              <!-- title -->
+              <h2 class="portfolio-card-title">Title of image</h2>
+              <!-- short description -->
+              <!-- read more -->
+              <p class="portfolio-card-end">
+                  VIEW MORE
+                  <i class="fas fa-angle-double-right"></i>
+              </p>
+          </div>
+        </div>
+      </div>
+      <div class="dots-container mt-6">
+          <span class="dot active" data-slide="0"></span>
+          <span class="dot" data-slide="1"></span>
+          <span class="dot" data-slide="2"></span>
+      </div>
+    </div>
+
+    <script src="./js/slider.js"></script>
 
   </div>
 </div>

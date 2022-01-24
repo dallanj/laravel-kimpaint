@@ -70,6 +70,13 @@ class Frontpage extends Component
         ->orderBy('created_at', 'asc')
         ->get();
     }
+    private function recentBlogs()
+    {
+        return DB::table('blogs')
+        ->orderBy('created_at', 'desc')
+        ->limit(4)
+        ->get();
+    }
     
     /**
      * Livewire render function
@@ -81,6 +88,7 @@ class Frontpage extends Component
         return view('livewire.frontpage', [
             'menuLinks' => $this->menuLinks(),
             'subMenuLinks' => $this->subMenuLinks(),
+            'recentBlogs' => $this->recentBlogs(),
         ])->layout('layouts.frontpage');
     }
 }

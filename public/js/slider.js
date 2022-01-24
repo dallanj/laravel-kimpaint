@@ -19,7 +19,9 @@ $(function() {
     });
 
     $( "#closeNavMenu" ).click(function() {
-        header.removeClass("h-full");
+        setTimeout(function() {
+            header.removeClass("h-full");
+        },500);
     });
 
     

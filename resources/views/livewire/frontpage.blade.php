@@ -19,7 +19,7 @@
         <polygon points="50,0 100,0 50,100 0,100" />
       </svg>
 
-      <div class="header h-full" x-data="{ open: false, onPageLoad:false }">
+      <div class="header" x-data="{ open: false, onPageLoad:false }">
         <div class="relative pt-6 px-4 sm:px-6 lg:px-8">
           <nav class="relative flex items-center justify-between sm:h-10 lg:justify-start" aria-label="Global">
             <div class="flex items-center flex-grow flex-shrink-0 lg:flex-grow-0">
@@ -360,67 +360,27 @@
     <!-- blogs -->
     <div class="mt-10 hidden md:block">
         <div class="relative grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-8">
-          <!-- blog post example -->
-          <div class="portfolio-card">
+          @foreach ($recentBlogs as $blog)
+            <!-- blog post example -->
+            <div class="portfolio-card">
+              <a class="flex flex-col" href="{{ url('blogs/'.$blog->slug) }}">
               <!-- image -->
               <img class="portfolio-card-img" src=" {{ 'img/hero.png' }}" alt="Photo1"/>
               <p class="pt-4 portfolio-card-type">Blog</p>
               <!-- title -->
-              <h2 class="portfolio-card-title">Title of post</h2>
+              <h2 class="portfolio-card-title">{{ $blog->title }}</h2>
               <!-- short description -->
-              <p class="portfolio-card-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vel blandit purus. Proin non auctor tellus.</p>
+              <p class="portfolio-card-desc">{!! \Illuminate\Support\Str::limit($blog->description, 50, '...') !!}</p>
               <!-- read more -->
               <p class="portfolio-card-end">
                   READ MORE
                   <i class="fas fa-angle-double-right"></i>
               </p>
-          </div>
-
-          <!-- gallery image example -->
-          <div class="portfolio-card">
-              <!-- image -->
-              <img class="portfolio-card-img" src=" {{ 'img/hero2.jpg' }}" alt="Photo1"/>
-              <p class="pt-4 portfolio-card-type">Gallery</p>
-              <!-- title -->
-              <h2 class="portfolio-card-title">Title of image</h2>
-              <!-- short description -->
-              <!-- read more -->
-              <p class="portfolio-card-end">
-                  VIEW MORE
-                  <i class="fas fa-angle-double-right"></i>
-              </p>
-          </div>
-
-          <!-- blog post example -->
-          <div class="portfolio-card">
-              <!-- image -->
-              <img class="portfolio-card-img" src=" {{ 'img/hero3.jpg' }}" alt="Photo1"/>
-              <p class="pt-4 portfolio-card-type">Blog</p>
-              <!-- title -->
-              <h2 class="portfolio-card-title">Title of post</h2>
-              <!-- short description -->
-              <p class="portfolio-card-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vel blandit purus. Proin non auctor tellus.</p>
-              <!-- read more -->
-              <p class="portfolio-card-end">
-                  READ MORE
-                  <i class="fas fa-angle-double-right"></i>
-              </p>
-          </div>
-
-          <!-- gallery image example -->
-          <div class="portfolio-card">
-              <!-- image -->
-              <img class="portfolio-card-img" src=" {{ 'img/hero.png' }}" alt="Photo1"/>
-              <p class="pt-4 portfolio-card-type">Gallery</p>
-              <!-- title -->
-              <h2 class="portfolio-card-title">Title of image</h2>
-              <!-- short description -->
-              <!-- read more -->
-              <p class="portfolio-card-end">
-                  VIEW MORE
-                  <i class="fas fa-angle-double-right"></i>
-              </p>
-          </div>
+              </a>
+            </div>
+          @endforeach
+     
+               
 
         </div>
     </div>
@@ -431,81 +391,34 @@
 
         <button class="btn-slide prev"><i class="fas fa-3x fa-chevron-left"></i></button>
         <button class="btn-slide next"><i class="fas fa-3x fa-chevron-right"></i></button>
-        
-        <div class="slide">
+
+        @foreach ($recentBlogs as $blog)
+          <div class="slide">
             <!-- blog post example -->
             <div class="portfolio-card">
+              <a href="{{ url('blogs/'.$blog->slug) }}">
               <!-- image -->
               <img class="portfolio-card-img" src=" {{ 'img/hero.png' }}" alt="Photo1"/>
               <p class="pt-4 portfolio-card-type">Blog</p>
               <!-- title -->
-              <h2 class="portfolio-card-title">Title of post</h2>
+              <h2 class="portfolio-card-title">{{ $blog->title }}</h2>
               <!-- short description -->
-              <p class="portfolio-card-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vel blandit purus. Proin non auctor tellus.</p>
+              <p class="portfolio-card-desc">{!! \Illuminate\Support\Str::limit($blog->description, 50, '...') !!}</p>
               <!-- read more -->
               <p class="portfolio-card-end">
                   READ MORE
                   <i class="fas fa-angle-double-right"></i>
               </p>
+              </a>
+            </div>
           </div>
-        </div>
+        @endforeach
 
-        <div class="slide">
-          <!-- gallery image example -->
-          <div class="portfolio-card">
-              <!-- image -->
-              <img class="portfolio-card-img" src=" {{ 'img/hero2.jpg' }}" alt="Photo1"/>
-              <p class="pt-4 portfolio-card-type">Gallery</p>
-              <!-- title -->
-              <h2 class="portfolio-card-title">Title of image</h2>
-              <!-- short description -->
-              <!-- read more -->
-              <p class="portfolio-card-end">
-                  VIEW MORE
-                  <i class="fas fa-angle-double-right"></i>
-              </p>
-          </div>
-        </div>
-
-        <div class="slide">
-          <!-- blog post example -->
-          <div class="portfolio-card">
-              <!-- image -->
-              <img class="portfolio-card-img" src=" {{ 'img/hero3.jpg' }}" alt="Photo1"/>
-              <p class="pt-4 portfolio-card-type">Blog</p>
-              <!-- title -->
-              <h2 class="portfolio-card-title">Title of post</h2>
-              <!-- short description -->
-              <p class="portfolio-card-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vel blandit purus. Proin non auctor tellus.</p>
-              <!-- read more -->
-              <p class="portfolio-card-end">
-                  READ MORE
-                  <i class="fas fa-angle-double-right"></i>
-              </p>
-          </div>
-        </div>
-
-        <div class="slide">
-          <!-- gallery image example -->
-          <div class="portfolio-card">
-              <!-- image -->
-              <img class="portfolio-card-img" src=" {{ 'img/hero.png' }}" alt="Photo1"/>
-              <p class="pt-4 portfolio-card-type">Gallery</p>
-              <!-- title -->
-              <h2 class="portfolio-card-title">Title of image</h2>
-              <!-- short description -->
-              <!-- read more -->
-              <p class="portfolio-card-end">
-                  VIEW MORE
-                  <i class="fas fa-angle-double-right"></i>
-              </p>
-          </div>
-        </div>
       </div>
       <div class="dots-container mt-6">
-          <span class="dot active" data-slide="0"></span>
-          <span class="dot" data-slide="1"></span>
-          <span class="dot" data-slide="2"></span>
+          @for ($i = 0; $i < count($recentBlogs); $i++)
+            <span class="dot" data-slide="@php echo $i;  @endphp"></span>
+          @endfor
       </div>
     </div>
 

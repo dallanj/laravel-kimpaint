@@ -35,6 +35,10 @@ Route::group(['middleware' =>[
         return view('admin.navigation-menus');
     })->name('navigation-menus');
 
+    Route::get('/blogs', function () {
+        return view('admin.blogs');
+    })->name('blogs');
+
 });
 
 Route::get('/{urlslug}', Frontpage::class);

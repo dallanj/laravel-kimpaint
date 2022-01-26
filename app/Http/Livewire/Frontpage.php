@@ -4,10 +4,12 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use App\Models\Page;
+use Livewire\WithPagination;
 use Illuminate\Support\Facades\DB;
 
 class Frontpage extends Component
 {
+    use WithPagination;
     public $urlslug;
     public $title;
     public $content;
@@ -21,6 +23,7 @@ class Frontpage extends Component
     public function mount($urlslug = null)
     {
         $this->retrieveContent($urlslug);
+        
     }
     
     /**
@@ -77,6 +80,16 @@ class Frontpage extends Component
         ->limit(4)
         ->get();
     }
+    // public function read()
+    // {
+    //     return Page::paginate(2);
+    // }
+    private function allBlogs()
+    {
+        return DB::table('blogs')
+        ->orderBy('created_at', 'desc')
+        ->paginate(1);
+    }
     
     /**
      * Livewire render function
@@ -89,6 +102,7 @@ class Frontpage extends Component
             'menuLinks' => $this->menuLinks(),
             'subMenuLinks' => $this->subMenuLinks(),
             'recentBlogs' => $this->recentBlogs(),
+            'allBlogs' => $this->allBlogs(),
         ])->layout('layouts.frontpage');
     }
 }

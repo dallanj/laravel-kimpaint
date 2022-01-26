@@ -48,7 +48,7 @@ class Blogs extends Component
 
     public function read()
     {
-        return Blog::paginate(5);
+        return Blog::paginate(2);
     }
 
     /**

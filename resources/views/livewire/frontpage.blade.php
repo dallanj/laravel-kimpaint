@@ -613,8 +613,7 @@
                               <option>Last Week</option>
                           </select>
                       </div>
-                  </div>
-                  
+                  </div> 
                   @foreach ($allBlogs as $blog)
                     <div class="mt-6">
                         <div class="max-w-7xl px-10 py-6 mx-auto bg-white rounded-lg shadow-md">

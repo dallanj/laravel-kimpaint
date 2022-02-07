@@ -619,7 +619,9 @@
                     <div class="mt-6">
                         <div class="max-w-7xl px-10 py-6 mx-auto bg-white rounded-lg shadow-md">
                             <div class="flex items-center justify-between">
-                              <span class="font-light text-gray-600">{{ $blog->created_at }}</span>
+                              <span class="font-light text-gray-600">
+                                {{ date('j F, Y', strtotime($blog->created_at)) }}
+                              </span>
                             </div>
                             <div class="mt-2">
                               <a href="#" class="text-2xl font-bold text-gray-700 hover:underline">

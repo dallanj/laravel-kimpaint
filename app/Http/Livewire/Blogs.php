@@ -7,6 +7,7 @@ use Livewire\Component;
 use Illuminate\Validation\Rule;
 use Livewire\WithPagination;
 use Illuminate\Support\Str;  // Laravels built in slug generator
+use Illuminate\Support\Facades\DB;
 
 class Blogs extends Component
 {
@@ -187,7 +188,12 @@ class Blogs extends Component
         $this->content = null;
         $this->modelId = null;
     }
-
+    private function allBlogs()
+    {
+        return DB::table('blogs')
+        ->orderBy('created_at', 'desc')
+        ->paginate(1);
+    }
     /**
      * The livewire render function
      *
@@ -197,6 +203,7 @@ class Blogs extends Component
     {
         return view('livewire.blogs', [
             'data' => $this->read(),
+            'allBlogs' => $this->allBlogs(),
         ]);
     }
 }

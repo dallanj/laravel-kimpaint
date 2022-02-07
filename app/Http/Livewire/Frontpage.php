@@ -80,10 +80,10 @@ class Frontpage extends Component
         ->limit(4)
         ->get();
     }
-    // public function read()
-    // {
-    //     return Page::paginate(2);
-    // }
+    public function read()
+    {
+        return Page::paginate(2);
+    }
     private function allBlogs()
     {
         return DB::table('blogs')
@@ -103,6 +103,7 @@ class Frontpage extends Component
             'subMenuLinks' => $this->subMenuLinks(),
             'recentBlogs' => $this->recentBlogs(),
             'allBlogs' => $this->allBlogs(),
+            'data' => $this->read(),
         ])->layout('layouts.frontpage');
     }
 }

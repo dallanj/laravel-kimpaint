@@ -385,3 +385,73 @@ svg.wave {
 .bg-footer-bg-2 {
     background-color: #fbb03b !important;
 }
+
+/* blog styling */
+
+a {
+    text-decoration: none;
+    color:inherit;
+}
+
+article + article {
+    margin-top:2.5rem;
+    border-top:1px solid #eee;
+    padding-top:1.5rem;
+}
+
+/* Blog posts page */
+.blog-posts-date {
+    font-size:1rem;
+    color:#666;
+    /* background-color: rebeccapurple; */
+    padding:.5em 0;
+}
+
+.blog-posts-title {
+    font-size:1.5rem;
+    color:#111;
+    font-weight:bold;
+}
+
+.blog-posts-author {
+    font-size:1rem;
+    color:#333;
+    margin-bottom:1em;
+}
+
+.blog-posts-author > a {
+    color: #fbb03b;
+}
+
+.blog-posts-excerpt {
+    font-size:1rem;
+    color:#999;
+}
+
+.category-tab-bg {
+    color: white;
+}
+.category-tab-bg-notactive {
+    background-color:#fbb03b;
+}
+.category-tab-bg-active {
+    background:#F09605;
+}
+.category-tab-bg-notactive:hover {
+    background-color: #FCC266;
+}
+
+/* Specific blog post page */
+.post-title {
+    font-size:2rem;
+    margin-bottom: 1em;
+}
+
+.bread-crumb {
+    color: #fbb03b;
+    font-weight: bold;
+}
+
+.post-container {
+    margin-top:2em;
+}

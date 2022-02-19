@@ -48,7 +48,7 @@ Route::group(['middleware' =>[
 // Route::get('/{urlslug}', Frontpage::class);
 Route::get('/', Frontpage::class);
 
-Route::get('blog/', [PostController::class, 'index'])->name('home');
+Route::get('posts/', [PostController::class, 'index'])->name('home');
 
 // pass a uri slug to route/view
 Route::get('posts/{post:slug}', [PostController::class, 'show']);
@@ -59,7 +59,7 @@ Route::get('categories/{category:slug}', function (Category $category) {
         'posts' => $category->posts,
         'header' => $category->name,
         'currentCategory' => $category,
-        'categories' => Category::all()
+        'categories' => Category::all(),
     ]);
 });
 
@@ -68,6 +68,6 @@ Route::get('authors/{author:username}', function (User $author) {
     return view('posts', [
         'posts' => $author->posts,
         'header' => $author->name,
-        'categories' => Category::all()
+        'categories' => Category::all(),
     ]);
 });

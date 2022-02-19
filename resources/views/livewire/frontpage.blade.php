@@ -22,7 +22,7 @@
           <nav class="relative flex items-center justify-between sm:h-10 lg:justify-start" aria-label="Global">
             <div class="flex items-center flex-grow flex-shrink-0 lg:flex-grow-0">
               <div class="flex items-center justify-between w-full md:w-auto">
-                <a href="home">
+                <a href="/">
                   <span class="sr-only">Workflow</span>
                   <!-- <img class="h-8 w-auto sm:h-10" src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"> -->
                   <h1 class="logo-text"><strong>KIMPAINT</strong></h1>
@@ -104,7 +104,7 @@
             <div class="px-5 pt-4 flex items-center justify-between">
               <div>
                 <!-- <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg" alt=""> -->
-                <a href="home"><h1 class="logo-text"><strong>KIMPAINT</strong></h1></a>
+                <a href="/"><h1 class="logo-text"><strong>KIMPAINT</strong></h1></a>
               </div>
               <div class="-mr-2">
                 <button id="closeNavMenu" @click.prevent="open = !open" type="button" class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 navButton hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
@@ -727,7 +727,7 @@
     <div class="grid grid-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       <div class="">
 
-        <a href="home"><h1 class="logo-text mb-3"><strong>KIMPAINT</strong></h1></a>
+        <a href="/"><h1 class="logo-text mb-3"><strong>KIMPAINT</strong></h1></a>
         
         <p>
           Here you can use rows and columns to organize your footer content. Lorem ipsum dolor

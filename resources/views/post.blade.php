@@ -5,7 +5,7 @@
     <main class="p-4 sm:p-0">
         <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
             
-            <a class="bread-crumb" href="/blog">< BACK TO BLOG</a>
+            <a class="bread-crumb" href="/posts">< BACK TO BLOG</a>
 
             <article class="post-container">
 

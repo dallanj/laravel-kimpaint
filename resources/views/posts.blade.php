@@ -11,7 +11,7 @@
             <aside class="mb-6">
                 <ul class="flex gap-2 flex-wrap body-text text-sm">
                     @if (isset($currentCategory))
-                        <a href="../blog">
+                        <a href="../posts">
                             <li 
                             class="category-tab-bg p-1 rounded-md drop-shadow-lg category-tab-bg-notactive"
                             >

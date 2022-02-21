@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use App\Http\Livewire\Frontpage;
 use App\Models\Category;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 
@@ -26,10 +27,17 @@ class PostController extends Controller
             // $category->name = 'All';
         }
 
+        $author = User::firstWhere('username', request('author'));
+        
+        if(!$author) {
+            $author = ['name' => 'All'];
+            // $category->name = 'All';
+        }
+
         return view('posts.index', [
             'posts' => Post::latest()->filter(request(['search', 'category', 'author']))->paginate(4),
-            
-            'header' => $category
+            'author' => $author,
+            'category' => $category
         ]);
         
     }

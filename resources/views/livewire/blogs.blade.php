@@ -87,7 +87,7 @@
                     <x-jet-label for="slug" class="block text-sm font-medium text-gray-700" value="{{ __('Slug') }}"/>
                     <div class="mt-1 flex rounded-md shadow-sm">
                         <span class="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm">
-                            http://localhost:8000/blogs/
+                            http://localhost:8000/posts/
                         </span>
                         <input type="text" name="slug" id="slug" class="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300" wire:model.debounce.100ms="slug" placeholder="url-slug">
                     </div>
@@ -96,19 +96,13 @@
                 </div>
 
                 <div class="mt-4">
-                    <x-jet-label for="author" value="{{ __('Blog Author') }}" />
-                    <x-jet-input id="author" type="text" class="mt-1 block w-full" wire:model.debounce.100ms="author" autofocus />
-                    <!-- @error('title') <span class="error">{{ $message }}</span> @enderror -->
-                    <x-jet-input-error for="author" class="mt-2" />
-                </div>
-
-                <div class="mt-4">
-                    <x-jet-label for="category" value="{{ __('Category') }}" />
-                    <select wire:model="category" class="block appearance-none w-full bg-gray-100 border border-gray-200 text-gray-700 py-3 px-4 pr-8 round leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
-                        <option value="Menu">Menu item</option>
-                        <option value="SubMenu">Submenu item</option>
+                    <x-jet-label for="category_id" value="{{ __('Category') }}" />
+                    <select wire:model="category_id" class="block appearance-none w-full bg-gray-100 border border-gray-200 text-gray-700 py-3 px-4 pr-8 round leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                        @foreach ($categories as $category)    
+                            <option value="{{ $category->id }}">{{ $category->name }}</option>
+                        @endforeach
                     </select>
-                    <x-jet-input-error for="category" class="mt-2" />
+                    <x-jet-input-error for="category_id" class="mt-2" />
                 </div>
 
                 <div class="mt-4">
@@ -127,7 +121,7 @@
                                 <trix-editor
                                     class="trix-content"
                                     x-ref="trix"
-                                    wire:model.debounce.100000ms="content"
+                                    wire:model.debounce.100000ms="body"
                                     wire:key="trix-content-unique-key"
                                 ></trix-editor>
                             </div>
@@ -178,11 +172,9 @@
 </div>
 
 @php
-$user = auth()->user();
-
   
 
   
 
-var_dump($user->username);
+echo auth()->user()->id;
 @endphp

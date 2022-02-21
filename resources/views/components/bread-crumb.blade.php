@@ -19,8 +19,3 @@
 
     
 </nav>
-
-
-<li><a href="#" class="bread-crumb">Library</a></li>
-<li><span class="text-gray-500 mx-2">/</span></li>
-<li class="text-gray-500">Blog</li>

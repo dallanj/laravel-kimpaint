@@ -5,7 +5,10 @@ namespace App\Http\Livewire;
 use App\Models\Blog;
 use Livewire\Component;
 use Illuminate\Validation\Rule;
+use App\Models\Category;
+use App\Models\User;
 use Livewire\WithPagination;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;  // Laravels built in slug generator
 use Illuminate\Support\Facades\DB;
 
@@ -20,7 +23,7 @@ class Blogs extends Component
     public $excerpt;
     public $body;
     public $user_id;
-    public $category_id;
+    public $category_id = '1';
     public $modelId;
 
     /**
@@ -32,10 +35,8 @@ class Blogs extends Component
     {
         return [
             'title' => 'required',
-            'slug' => ['required', Rule::unique('blogs','slug')->ignore($this->modelId)],
+            'slug' => ['required', Rule::unique('posts','slug')->ignore($this->modelId)],
             'excerpt' => 'required',
-            'body' => 'required',
-            'user_id' => 'required',
             'category_id' => 'required'
         ];
     }
@@ -178,7 +179,7 @@ class Blogs extends Component
             'slug' => $this->slug,
             'body' => $this->body,
             'excerpt' => $this->excerpt,
-            'user_id' => $this->user_id,
+            'user_id' => Auth::user()->id,
             'category_id' => $this->category_id
         ];
     }
@@ -194,16 +195,11 @@ class Blogs extends Component
         $this->slug = null;
         $this->excerpt = null;
         $this->body = null;
-        $this->user_id = null;
         $this->category_id = null;
+        $this->user_id = null;
         $this->modelId = null;
     }
-    private function allBlogs()
-    {
-        return DB::table('posts')
-        ->orderBy('created_at', 'desc')
-        ->paginate(1);
-    }
+
     /**
      * The livewire render function
      *
@@ -213,7 +209,8 @@ class Blogs extends Component
     {
         return view('livewire.blogs', [
             'data' => $this->read(),
-            'allBlogs' => $this->allBlogs(),
+            'categories' => Category::all(),
+            'users' => User::all()
         ]);
     }
 }

@@ -75,7 +75,7 @@ class Frontpage extends Component
     }
     private function recentBlogs()
     {
-        return DB::table('blogs')
+        return DB::table('posts')
         ->orderBy('created_at', 'desc')
         ->limit(4)
         ->get();

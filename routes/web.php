@@ -53,21 +53,21 @@ Route::get('posts/', [PostController::class, 'index'])->name('home');
 // pass a uri slug to route/view
 Route::get('posts/{post:slug}', [PostController::class, 'show']);
 
-Route::get('categories/{category:slug}', function (Category $category) {
+// Route::get('categories/{category:slug}', function (Category $category) {
 
-    return view('posts', [
-        'posts' => $category->posts,
-        'header' => $category->name,
-        'currentCategory' => $category,
-        'categories' => Category::all(),
-    ]);
-});
+//     return view('posts', [
+//         'posts' => $category->posts,
+//         'header' => $category->name,
+//         'currentCategory' => $category,
+//         'categories' => Category::all(),
+//     ]);
+// });
 
-Route::get('authors/{author:username}', function (User $author) {
+// Route::get('authors/{author:username}', function (User $author) {
 
-    return view('posts', [
-        'posts' => $author->posts,
-        'header' => $author->name,
-        'categories' => Category::all(),
-    ]);
-});
+//     return view('posts', [
+//         'posts' => $author->posts,
+//         'header' => $author->name,
+//         'categories' => Category::all(),
+//     ]);
+// });

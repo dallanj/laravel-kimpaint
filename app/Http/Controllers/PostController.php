@@ -6,31 +6,11 @@ use App\Models\Post;
 use App\Http\Livewire\Frontpage;
 use App\Models\Category;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 
 class PostController extends Controller
 {    
 
-    //temp
-    private function menuLinks()
-    {
-        return DB::table('navigation_menus')
-        ->where('type', '=', 'Menu')
-        ->orderBy('sequence', 'asc')
-        ->orderBy('created_at', 'asc')
-        ->get();
-    }
-    private function subMenuLinks()
-    {
-        return DB::table('navigation_menus')
-        ->where('type', '=', 'SubMenu')
-        ->orderBy('menuid', 'asc')
-        ->orderBy('sequence', 'asc')
-        ->orderBy('created_at', 'asc')
-        ->get();
-    }
-    //temp
     /**
      * Show all posts
      *
@@ -39,13 +19,19 @@ class PostController extends Controller
     public function index()
     {
 
-       return view('posts', [
-            'posts' => Post::latest()->filter(request(['search']))->get(),
-            'header' => 'All',
-            'categories' => Category::all(),
-            'menuLinks' => $this->menuLinks(),
-            'subMenuLinks' => $this->subMenuLinks(),
+        $category = Category::firstWhere('slug', request('category'));
+        
+        if(!$category) {
+            $category = ['name' => 'All'];
+            // $category->name = 'All';
+        }
+
+        return view('posts.index', [
+            'posts' => Post::latest()->filter(request(['search', 'category', 'author']))->paginate(4),
+            
+            'header' => $category
         ]);
+        
     }
     
         
@@ -60,11 +46,9 @@ class PostController extends Controller
         // $post = Post::findOrFail($id);
 
         // pass the html file to the view
-        return view('post', [
+        return view('posts.show', [
             'post' => $post,
             'header' => $post->title,
-            'menuLinks' => $this->menuLinks(),
-            'subMenuLinks' => $this->subMenuLinks(),
         ]);
     }
 

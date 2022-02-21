@@ -33,4 +33,6 @@
 <div class="min-h-full">  
 
   {{ $slot }}
+
+  <x-footer />
 </div>

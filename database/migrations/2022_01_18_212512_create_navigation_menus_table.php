@@ -15,9 +15,10 @@ class CreateNavigationMenusTable extends Migration
     {
         Schema::create('navigation_menus', function (Blueprint $table) {
             $table->id();
-            $table->enum('type', ['Blog', 'Gallery']);
-            $table->string('title');
-            $table->string('content');
+            $table->integer('sequence');
+            $table->enum('type', ['Menu', 'SubMenu']);
+            $table->integer('menuid')->nullable();
+            $table->string('label');
             $table->string('slug');
             $table->timestamps();
         });

@@ -8,7 +8,6 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
-@if ($title == 'home')
 <div class="relative bg-white overflow-hidden">
   <div class="headerFixedBg hidden"></div>
   <div class="max-w-7xl mx-auto">
@@ -39,7 +38,7 @@
               </div>
             </div>
             <!-- desktp nav menu -->
-            <div class="hidden md:block md:ml-10 md:pr-4 md:space-x-8">
+            <div class="hidden relative md:block md:ml-10 md:pr-4 md:space-x-8">
               @foreach ($menuLinks as $link)
 
                 @php
@@ -419,223 +418,10 @@
 
   </div>
 </div>
-@else
 
-<div class="relative bg-white overflow-hidden">
-  
 
-  <!-- CTA -->
-  <div class="flex flex-col relative bg-cta-beige overflow-hidden">
-    <div class="max-w-7xl mx-auto py-20 px-4 sm:px-6 lg:py-16 lg:px-8 lg:items-center lg:justify-between relative z-10">
-      <h2 class="about-us-title text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl lg:text-5xl">
-        <!-- <span class="block">We're ready to paint</span> -->
-        <span class="block text-orange">{{ $title }}</span>
-      </h2>
-      
-    </div>
-    <svg class="wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#f2ece4" fill-opacity="1" d="M0,224L80,218.7C160,213,320,203,480,218.7C640,235,800,277,960,250.7C1120,224,1280,128,1360,80L1440,32L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"></path>
-    </svg>
-  </div>
-
-  @if ($title == 'Portfolio')
-
-    <div class="overflow-x-hidden bg-gray-50">
-      <div class="px-6 py-8">
-          <div class="px-0 sm:px-6 lg:px-8 md:px-0 max-w-7xl mx-auto container flex justify-between mx-auto">
-              <div class="w-full lg:w-8/12">
-                  <div class="flex items-center justify-between">
-                      <h1 class="text-xl font-bold text-gray-700 md:text-2xl">Post</h1>
-                      <div>
-                          <select class="w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
-                              <option>Latest</option>
-                              <option>Last Week</option>
-                          </select>
-                      </div>
-                  </div> 
-                  @foreach ($allBlogs as $blog)
-                    <div class="mt-6">
-                        <div class="max-w-7xl px-10 py-6 mx-auto bg-white rounded-lg shadow-md">
-                            <div class="flex items-center justify-between">
-                              <span class="font-light text-gray-600">
-                                {{ date('j F, Y', strtotime($blog->created_at)) }}
-                              </span>
-                            </div>
-                            <div class="mt-2">
-                              <a href="#" class="text-2xl font-bold text-gray-700 hover:underline">
-                                {{ $blog->title }}
-                              </a>
-                                <p class="mt-2 text-gray-600">{{ $blog->description }}</p>
-                            </div>
-                            <div class="flex items-center justify-between mt-4">
-                              <a href="#" class="text-blue-500 hover:underline">
-                                Read more
-                              </a>
-                            </div>
-                        </div>
-                    </div>
-                  @endforeach
-
-                  {{ $allBlogs->links() }}
-
-              </div>
-              <div class="hidden w-4/12 -mx-8 lg:block">
-                  <div class="px-8">
-                      <h1 class="mb-4 text-xl font-bold text-gray-700">Authors</h1>
-                      <div class="flex flex-col max-w-sm px-6 py-4 mx-auto bg-white rounded-lg shadow-md">
-                          <ul class="-mx-4">
-                              <li class="flex items-center"><img
-                                      src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=731&amp;q=80"
-                                      alt="avatar" class="object-cover w-10 h-10 mx-4 rounded-full">
-                                  <p><a href="#" class="mx-1 font-bold text-gray-700 hover:underline">Alex John</a><span
-                                          class="text-sm font-light text-gray-700">Created 23 Posts</span></p>
-                              </li>
-                              <li class="flex items-center mt-6"><img
-                                      src="https://images.unsplash.com/photo-1464863979621-258859e62245?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=333&amp;q=80"
-                                      alt="avatar" class="object-cover w-10 h-10 mx-4 rounded-full">
-                                  <p><a href="#" class="mx-1 font-bold text-gray-700 hover:underline">Jane Doe</a><span
-                                          class="text-sm font-light text-gray-700">Created 52 Posts</span></p>
-                              </li>
-                              <li class="flex items-center mt-6"><img
-                                      src="https://images.unsplash.com/photo-1531251445707-1f000e1e87d0?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=281&amp;q=80"
-                                      alt="avatar" class="object-cover w-10 h-10 mx-4 rounded-full">
-                                  <p><a href="#" class="mx-1 font-bold text-gray-700 hover:underline">Lisa Way</a><span
-                                          class="text-sm font-light text-gray-700">Created 73 Posts</span></p>
-                              </li>
-                              <li class="flex items-center mt-6"><img
-                                      src="https://images.unsplash.com/photo-1500757810556-5d600d9b737d?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=735&amp;q=80"
-                                      alt="avatar" class="object-cover w-10 h-10 mx-4 rounded-full">
-                                  <p><a href="#" class="mx-1 font-bold text-gray-700 hover:underline">Steve Matt</a><span
-                                          class="text-sm font-light text-gray-700">Created 245 Posts</span></p>
-                              </li>
-                              <li class="flex items-center mt-6"><img
-                                      src="https://images.unsplash.com/photo-1502980426475-b83966705988?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=373&amp;q=80"
-                                      alt="avatar" class="object-cover w-10 h-10 mx-4 rounded-full">
-                                  <p><a href="#" class="mx-1 font-bold text-gray-700 hover:underline">Khatab
-                                          Wedaa</a><span class="text-sm font-light text-gray-700">Created 332 Posts</span>
-                                  </p>
-                              </li>
-                          </ul>
-                      </div>
-                  </div>
-                  <div class="px-8 mt-10">
-                      <h1 class="mb-4 text-xl font-bold text-gray-700">Categories</h1>
-                      <div class="flex flex-col max-w-sm px-4 py-6 mx-auto bg-white rounded-lg shadow-md">
-                          <ul>
-                              <li><a href="#" class="mx-1 font-bold text-gray-700 hover:text-gray-600 hover:underline">-
-                                      AWS</a></li>
-                              <li class="mt-2"><a href="#"
-                                      class="mx-1 font-bold text-gray-700 hover:text-gray-600 hover:underline">-
-                                      Laravel</a></li>
-                              <li class="mt-2"><a href="#"
-                                      class="mx-1 font-bold text-gray-700 hover:text-gray-600 hover:underline">- Vue</a>
-                              </li>
-                              <li class="mt-2"><a href="#"
-                                      class="mx-1 font-bold text-gray-700 hover:text-gray-600 hover:underline">-
-                                      Design</a></li>
-                              <li class="flex items-center mt-2"><a href="#"
-                                      class="mx-1 font-bold text-gray-700 hover:text-gray-600 hover:underline">-
-                                      Django</a></li>
-                              <li class="flex items-center mt-2"><a href="#"
-                                      class="mx-1 font-bold text-gray-700 hover:text-gray-600 hover:underline">- PHP</a>
-                              </li>
-                          </ul>
-                      </div>
-                  </div>
-                  <div class="px-8 mt-10">
-                      <h1 class="mb-4 text-xl font-bold text-gray-700">Recent Post</h1>
-                      <div class="flex flex-col max-w-sm px-8 py-6 mx-auto bg-white rounded-lg shadow-md">
-                          <div class="flex items-center justify-center"><a href="#"
-                                  class="px-2 py-1 text-sm text-green-100 bg-gray-600 rounded hover:bg-gray-500">Laravel</a>
-                          </div>
-                          <div class="mt-4"><a href="#" class="text-lg font-medium text-gray-700 hover:underline">Build
-                                  Your New Idea with Laravel Freamwork.</a></div>
-                          <div class="flex items-center justify-between mt-4">
-                              <div class="flex items-center"><img
-                                      src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=731&amp;q=80"
-                                      alt="avatar" class="object-cover w-8 h-8 rounded-full"><a href="#"
-                                      class="mx-3 text-sm text-gray-700 hover:underline">Alex John</a></div><span
-                                  class="text-sm font-light text-gray-600">Jun 1, 2020</span>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-    </div>
-    @elseif ($title == 'Contact Us')
-    <div class="px-6 py-8">
-    <div class="px-0 sm:px-6 lg:px-8 md:px-0 max-w-7xl max-w-7xl mx-auto flex flex-col md:flex-row justify-between">
-      
-      <div class="mt-10 mr-20 flex-1">
-        <div class="relative flex items-center mb-10">
-            <p class="text-lg leading-6 font-medium text-gray-900">
-              Please contact us by phone, text, or email to learn more
-              about our services and team. Everyone gets a free job quote
-              and we will come directly to you. We typically respond within
-              the same day and able to quote within two-three days.
-            </p>
-        </div>
-        <div class="relative flex items-center mb-10">
-            <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-orange text-white text-2xl">
-              <i class="fas fa-phone"></i>
-            </div>
-            <p class="ml-16 text-lg leading-6 font-medium text-gray-900">+1 905-351-7947</p>
-        </div>
-        <div class="relative flex items-center">
-            <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-orange text-white text-2xl">
-              <i class="fas fa-envelope"></i>
-            </div>
-            <p class="ml-16 text-lg leading-6 font-medium text-gray-900">contact@kimpaint.com</p>
-        </div>
-      </div>
-      
-      <form class="w-full mt-10 max-w-lg flex-1">
-        <div class="flex flex-wrap -mx-3 mb-6">
-          <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-name">
-              Name (*)
-            </label>
-            <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-name" type="text" placeholder="Jane Doe">
-            <p class="text-red-500 text-xs italic">Please fill out this field.</p>
-          </div>
-          <div class="w-full md:w-1/2 px-3">
-            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-company">
-              Company
-            </label>
-            <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-company" type="text" placeholder="ACME Ltd.">
-          </div>
-        </div>
-        <div class="flex flex-wrap -mx-3 mb-6">
-          <div class="w-full px-3">
-            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
-              E-mail (*)
-            </label>
-            <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="email" type="email">
-          </div>
-        </div>
-        <div class="flex flex-wrap -mx-3 mb-6">
-          <div class="w-full px-3">
-            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
-              Message (*)
-            </label>
-            <textarea class=" no-resize appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 h-48 resize-none" id="message"></textarea>
-          </div>
-        </div>
-        <div class="md:flex md:items-center">
-          <div class="md:w-1/3">
-            <button class="shadow bg-orange focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" type="button">
-              Send
-            </button>
-          </div>
-          <div class="md:w-2/3"></div>
-        </div>
-      </form>
-    </div>
-    </div>
-    @endif
 
   
-@endif
 
 
 <x-footer />

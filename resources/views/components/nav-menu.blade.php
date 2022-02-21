@@ -1,6 +1,6 @@
 <div class="headerFixedBg hidden"></div>
     <div class="max-w-7xl mx-auto">
-      <div class="relative z-20 pb-6 bg-white sm:pb-6 md:pb-6  lg:pb-8 xl:pb-8">
+      <div class="relative z-20 pb-6 bg-white sm:pb-6 md:pb-6  lg:pb-6 xl:pb-6">
         <svg class="hidden lg:block absolute right-0 inset-y-0 h-full w-48 text-white transform translate-x-1/2" fill="currentColor" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
           <polygon points="50,0 100,0 50,100 0,100" />
         </svg>
@@ -27,7 +27,7 @@
                 </div>
               </div>
               <!-- desktop nav menu -->
-              <div class="hidden md:block md:ml-10 md:pr-4 md:space-x-8 relative">
+              <div class="hidden relative md:block md:ml-10 md:pr-4 md:space-x-8 relative">
                 @foreach ($menuLinks as $link)
 
                   @php

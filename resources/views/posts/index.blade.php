@@ -1,6 +1,8 @@
 <x-layout>
 
     <x-nav-menu />
+
+    @include ('posts._bread-crumb')
     
     @include ('posts._header')
 
@@ -12,8 +14,8 @@
                 <x-category-list />
             </aside>
 
-            <div class="flex">
-                <div class="form-floating mb-3 xl:w-96 body-text">
+            <div class="">
+                <div class="form-floating mb-3 max-w-lg body-text">
                     <form method="GET" action="/posts/">
                         
                         @if (request('category'))

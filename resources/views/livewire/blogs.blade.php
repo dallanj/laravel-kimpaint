@@ -13,9 +13,10 @@
                     <table class="w-full divide-y divide-gray-200">
                         <thead class="bg-gray-50">
                             <tr>
+                                <th scope="col" class="px-6 py-3 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Created at</th>
                                 <th scope="col" class="px-6 py-3 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Title</th>
                                 <th scope="col" class="px-6 py-3 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Link</th>
-                                <th scope="col" class="px-6 py-3 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Description</th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Excerpt</th>
                                 <th scope="col" class="relative px-6 py-3 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider"></th>
                             </tr>
                         </thead>
@@ -24,18 +25,21 @@
                                 @foreach ($data as $item)
                                     <tr>
                                         <td class="px-6 py-4 text-sm whitespace-no-wrap">
+                                            {{ date('F d, Y', strtotime($item->created_at)) }}
+                                        </td>
+                                        <td class="px-6 py-4 text-sm whitespace-no-wrap">
                                             {{$item->title}}
                                         </td>
                                         <td class="px-6 py-4 text-sm whitespace-no-wrap">
                                             <a 
                                                 class="text-indigo-600 hover:text-indigo-900"
                                                 target="_blank"
-                                                href="{{ URL::to('/blogs/'.$item->slug)}}"
+                                                href="{{ URL::to('/posts/'.$item->slug)}}"
                                             >
                                                 {{$item->slug}}
                                             </a>
                                         </td>
-                                        <td class="px-6 py-4 text-sm whitespace-no-wrap">{!! \Illuminate\Support\Str::limit($item->description, 50, '...') !!}</td>
+                                        <td class="px-6 py-4 text-sm whitespace-no-wrap">{!! \Illuminate\Support\Str::limit($item->body, 50, '...') !!}</td>
                                         <td class="px-6 py-4 text-right text-sm whitespace-no-wrap">
                                             <x-jet-secondary-button wire:click="updateShowModal({{$item->id}})">
                                                 {{ __('Edit') }}
@@ -71,6 +75,7 @@
             </x-slot>
 
             <x-slot name="content">
+
                 <div class="mt-4">
                     <x-jet-label for="title" value="{{ __('Blog Title') }}" />
                     <x-jet-input id="title" type="text" class="mt-1 block w-full" wire:model.debounce.100ms="title" autofocus />
@@ -91,14 +96,30 @@
                 </div>
 
                 <div class="mt-4">
-                    <x-jet-label for="description" value="{{ __('Blog Description') }}" />
-                    <x-jet-input id="description" type="text" class="mt-1 block w-full" wire:model.debounce.100ms="description" autofocus />
+                    <x-jet-label for="author" value="{{ __('Blog Author') }}" />
+                    <x-jet-input id="author" type="text" class="mt-1 block w-full" wire:model.debounce.100ms="author" autofocus />
                     <!-- @error('title') <span class="error">{{ $message }}</span> @enderror -->
-                    <x-jet-input-error for="description" class="mt-2" />
+                    <x-jet-input-error for="author" class="mt-2" />
                 </div>
 
                 <div class="mt-4">
-                    <x-jet-label for="content" value="{{ __('Content') }}" />
+                    <x-jet-label for="category" value="{{ __('Category') }}" />
+                    <select wire:model="category" class="block appearance-none w-full bg-gray-100 border border-gray-200 text-gray-700 py-3 px-4 pr-8 round leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                        <option value="Menu">Menu item</option>
+                        <option value="SubMenu">Submenu item</option>
+                    </select>
+                    <x-jet-input-error for="category" class="mt-2" />
+                </div>
+
+                <div class="mt-4">
+                    <x-jet-label for="excerpt" value="{{ __('Blog Excerpt') }}" />
+                    <x-jet-input id="excerpt" type="text" class="mt-1 block w-full" wire:model.debounce.100ms="excerpt" autofocus />
+                    <!-- @error('title') <span class="error">{{ $message }}</span> @enderror -->
+                    <x-jet-input-error for="excerpt" class="mt-2" />
+                </div>
+
+                <div class="mt-4">
+                    <x-jet-label for="body" value="{{ __('Body') }}" />
                     
                     <div class="rounded-md shadow-sm">
                         <div class="mt-1 bg-white">
@@ -113,7 +134,7 @@
                         </div>
                     </div>
                     <!-- @error('content') <span class="error">{{ $message }}</span> @enderror -->
-                    <x-jet-input-error for="content" class="mt-2" />
+                    <x-jet-input-error for="body" class="mt-2" />
                 </div>
             </x-slot>
 
@@ -155,3 +176,13 @@
             </x-slot>
         </x-jet-dialog-modal>
 </div>
+
+@php
+$user = auth()->user();
+
+  
+
+  
+
+var_dump($user->username);
+@endphp

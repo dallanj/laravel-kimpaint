@@ -29,6 +29,9 @@
 .text-orange {
     color: #fbb03b !important;
 }
+.border-orange {
+    border-color: #fbb03b;
+}
 
 .bg-orange {
     background-color: #fbb03b;
@@ -450,6 +453,9 @@ article + article {
 .bread-crumb {
     color: #fbb03b;
     font-weight: bold;
+}
+.bread-crumb:hover {
+    color:#F09605;
 }
 
 .post-container {

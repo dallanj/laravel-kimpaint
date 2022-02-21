@@ -53,15 +53,12 @@ Route::get('posts/', [PostController::class, 'index'])->name('home');
 // pass a uri slug to route/view
 Route::get('posts/{post:slug}', [PostController::class, 'show']);
 
-// Route::get('categories/{category:slug}', function (Category $category) {
+Route::get('contact-us/', function () {
 
-//     return view('posts', [
-//         'posts' => $category->posts,
-//         'header' => $category->name,
-//         'currentCategory' => $category,
-//         'categories' => Category::all(),
-//     ]);
-// });
+    return view('contact-us', [
+        'header' => 'Contact Us',
+    ]);
+});
 
 // Route::get('authors/{author:username}', function (User $author) {
 

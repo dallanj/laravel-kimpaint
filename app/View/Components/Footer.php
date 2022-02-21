@@ -16,15 +16,6 @@ class Footer extends Component
         ->orderBy('created_at', 'asc')
         ->get();
     }
-    private function subMenuLinks()
-    {
-        return DB::table('navigation_menus')
-        ->where('type', '=', 'SubMenu')
-        ->orderBy('menuid', 'asc')
-        ->orderBy('sequence', 'asc')
-        ->orderBy('created_at', 'asc')
-        ->get();
-    }
 
     /**
      * Get the view / contents that represent the component.
@@ -34,8 +25,7 @@ class Footer extends Component
     public function render()
     {
         return view('components.footer', [
-            'menuLinks' => $this->menuLinks(),
-            'subMenuLinks' => $this->subMenuLinks(),
+            'menuLinks' => $this->menuLinks()
         ]);
     }
 }

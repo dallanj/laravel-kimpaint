@@ -17,8 +17,10 @@ class Blogs extends Component
     public $modalConfirmDeleteVisible = false;
     public $slug;
     public $title;
-    public $description;
-    public $content;
+    public $excerpt;
+    public $body;
+    public $user_id;
+    public $category_id;
     public $modelId;
 
     /**
@@ -31,8 +33,10 @@ class Blogs extends Component
         return [
             'title' => 'required',
             'slug' => ['required', Rule::unique('blogs','slug')->ignore($this->modelId)],
-            'description' => 'required',
-            'content' => 'required',
+            'excerpt' => 'required',
+            'body' => 'required',
+            'user_id' => 'required',
+            'category_id' => 'required'
         ];
     }
 
@@ -49,7 +53,7 @@ class Blogs extends Component
 
     public function read()
     {
-        return Blog::paginate(2);
+        return Blog::paginate(10);
     }
 
     /**
@@ -156,8 +160,10 @@ class Blogs extends Component
         $data = Blog::find($this->modelId);
         $this->title = $data->title;
         $this->slug = $data->slug;
-        $this->description = $data->description;
-        $this->content = $data->content;
+        $this->excerpt = $data->excerpt;
+        $this->body = $data->body;
+        $this->user_id = $data->user_id;
+        $this->category_id = $data->category_id;
     }
 
     /**
@@ -170,8 +176,10 @@ class Blogs extends Component
         return [
             'title' => $this->title,
             'slug' => $this->slug,
-            'content' => $this->content,
-            'description' => $this->description,
+            'body' => $this->body,
+            'excerpt' => $this->excerpt,
+            'user_id' => $this->user_id,
+            'category_id' => $this->category_id
         ];
     }
 
@@ -184,13 +192,15 @@ class Blogs extends Component
     {
         $this->title = null;
         $this->slug = null;
-        $this->description = null;
-        $this->content = null;
+        $this->excerpt = null;
+        $this->body = null;
+        $this->user_id = null;
+        $this->category_id = null;
         $this->modelId = null;
     }
     private function allBlogs()
     {
-        return DB::table('blogs')
+        return DB::table('posts')
         ->orderBy('created_at', 'desc')
         ->paginate(1);
     }

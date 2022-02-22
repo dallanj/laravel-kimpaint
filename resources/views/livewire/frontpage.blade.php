@@ -229,23 +229,51 @@
 <!-- About us -->
 <div class="py-12 bg-white body-text bg-footer-bg">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="">
-      <h2 class="lg:text-center text-base text-orange font-semibold tracking-wide uppercase body-text">About us</h2>
-      <p class="lg:text-center mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
-        This is who we are
-      </p>
-      <p class="mt-4 text-xl text-gray-500 lg:mx-auto">
-      Lorem ipsum dolor sit amet consect adipisicing elit. Possimus magnam voluptatum cupiditate veritatis in accusamus quisquam.
-      Lorem ipsum dolor sit amet consect adipisicing elit. Possimus magnam voluptatum cupiditate veritatis in accusamus quisquam.
-      Lorem ipsum dolor sit amet consect adipisicing elit. Possimus magnam voluptatum cupiditate veritatis in accusamus quisquam.
-      </p>
-      <p class="mt-4 text-xl text-gray-500 lg:mx-auto">
-        Lorem ipsum dolor sit amet consect adipisicing elit. Possimus magnam voluptatum cupiditate veritatis in accusamus quisquam.
-        Lorem ipsum dolor sit amet consect adipisicing elit. Possimus magnam voluptatum cupiditate veritatis in accusamus quisquam.
-      </p>
-    </div>
+
+          <div class="flex flex-col lg:flex-row justify-between gap-8">
+              <div class="w-full lg:w-5/12 flex flex-col justify-center">
+                  <h2 class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl pb-4">About us</h2>
+                  <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum.In the first place we have granted to God, and by this our present charter confirmed for us and our heirs forever that the English Church shall be free, and shall have her rights entire, and her liberties inviolate; and we will that it be thus observed; which is apparent from</p>
+              </div>
+              <div class="w-full lg:w-8/12">
+                  <img class="w-full h-full" src="" alt="" />
+              </div>
+          </div>
+  
+          <div class="flex lg:flex-row flex-col justify-between gap-8 pt-12">
+              <div class="w-full lg:w-5/12 flex flex-col justify-center">
+                  <h2 class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl pb-4">Our Story</h2>
+                  <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum.In the first place we have granted to God, and by this our present charter confirmed for us and our heirs forever that the English Church shall be free, and shall have her rights entire, and her liberties inviolate; and we will that it be thus observed; which is apparent from</p>
+              </div>
+              <div class="w-full lg:w-8/12 lg:pt-8">
+                  <div class="grid md:grid-cols-4 sm:grid-cols-2 grid-cols-1 lg:gap-4 shadow-lg rounded-md">
+                      <div class="p-4 pb-6 flex justify-center flex-col items-center">
+                          <img class="md:block hidden" src="" alt="" />
+                          <img class="md:hidden block" src="" alt="" />
+                          <p class="font-medium text-xl leading-5 text-gray-800 dark:text-white mt-4">title</p>
+                      </div>
+                      <div class="p-4 pb-6 flex justify-center flex-col items-center">
+                          <img class="md:block hidden" src="" alt="" />
+                          <img class="md:hidden block" src="" alt="" />
+                          <p class="font-medium text-xl leading-5 text-gray-800 dark:text-white mt-4">title</p>
+                      </div>
+                      <div class="p-4 pb-6 flex justify-center flex-col items-center">
+                          <img class="md:block hidden" src="" alt="" />
+                          <img class="md:hidden block" src="" alt="" />
+                          <p class="font-medium text-xl leading-5 text-gray-800 dark:text-white mt-4">title</p>
+                      </div>
+                      <div class="p-4 pb-6 flex justify-center flex-col items-center">
+                          <img class="md:block hidden" src="" alt="" />
+                          <img class="md:hidden block" src="" alt="" />
+                          <p class="font-medium text-xl leading-5 text-gray-800 dark:text-white mt-4">title</p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          
   </div>
 </div>
+
 
 
 

@@ -226,6 +226,7 @@
   </svg>
 </div>
 
+
 <!-- About us -->
 <div class="py-12 bg-white body-text bg-footer-bg">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

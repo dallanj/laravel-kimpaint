@@ -12,44 +12,173 @@
         <!-- <div class="px-6 py-8"> -->
         <div class="max-w-7xl max-w-7xl mx-auto flex flex-col lg:flex-row justify-between">
         
-            <form class="w-full flex-auto">
+            <form class="w-full flex-auto" method="post" action="{{ route('contact.store') }}">
+                <!-- Success message -->
+                @if(Session::has('success'))
+                    <div x-data="{ open: true }" x-show="open" class="mb-8 bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative" role="alert">
+                        <strong class="font-bold">Success!</strong>
+                        <span class="block sm:inline">{{Session::get('success')}}</span>
+                        <span class="absolute top-0 bottom-0 right-0 px-4 py-3">
+                            <svg @click="open = false" class="fill-current h-6 w-6 text-green-500" role="button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><title>Close</title><path d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z"/></svg>
+                        </span>
+                    </div>
+                @endif
+                <!-- CROSS Site Request Forgery Protection -->
+                @csrf
+                
                 <div class="flex flex-wrap -mx-3 mb-6">
-                <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-name">
-                    Name (*)
-                    </label>
-                    <input class="appearance-none block w-full text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-name" type="text" placeholder="Jane Doe">
-                    <p class="text-red-500 text-xs italic">Please fill out this field.</p>
+                    <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="name">
+                        Name (*)
+                        </label>
+                        <input name="name" class="appearance-none block w-full text-gray-700 
+                            @if ($errors->has('name')) 
+                                border border-red-500
+                            @else
+                                border-gray-300
+                            @endif 
+                            rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" 
+                            id="name" 
+                            type="text" 
+                            placeholder="Jane Doe"
+                        >
+
+                        <!-- Error -->
+                        @if ($errors->has('name'))
+                        <p class="text-red-500 text-xs italic">
+                            {{ $errors->first('name') }}
+                        </p>
+                        @endif
+
+                    </div>
+                    <div class="w-full md:w-1/2 px-3">
+                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="company">
+                        Company
+                        </label>
+                        <input name="company" class="appearance-none block w-full text-gray-700 
+                            @if ($errors->has('company')) 
+                                border border-red-500
+                            @else
+                                border-gray-300
+                            @endif 
+                            rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" 
+                            id="company" 
+                            type="text" 
+                            placeholder=""
+                        >
+
+                        <!-- Error -->
+                        @if ($errors->has('company'))
+                        <p class="text-red-500 text-xs italic">
+                            {{ $errors->first('company') }}
+                        </p>
+                        @endif
+                    </div>
                 </div>
-                <div class="w-full md:w-1/2 px-3">
-                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-company">
-                    Company
-                    </label>
-                    <input class="appearance-none block w-full text-gray-700 border border-gray-400 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-company" type="text" placeholder="ACME Ltd.">
+
+                <div class="flex flex-wrap -mx-3 mb-6">
+                    <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="email">
+                        Email (*)
+                        </label>
+                        <input name="email" class="appearance-none block w-full text-gray-700 
+                            @if ($errors->has('email')) 
+                                border border-red-500
+                            @else
+                                border-gray-300
+                            @endif  
+                            rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" 
+                            id="email" 
+                            type="email" 
+                            placeholder="contact@janedoe.com"
+                        >
+                        
+                        <!-- Error -->
+                        @if ($errors->has('email'))
+                        <p class="text-red-500 text-xs italic">
+                            {{ $errors->first('email') }}
+                        </p>
+                        @endif
+                    </div>
+                    <div class="w-full md:w-1/2 px-3">
+                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="phone">
+                        Phone (*)
+                        </label>
+                        <input name="phone" class="appearance-none block w-full text-gray-700 
+                            @if ($errors->has('phone')) 
+                                border border-red-500
+                            @else
+                                border-gray-300
+                            @endif 
+                            rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" 
+                            id="phone" 
+                            type="text" 
+                            placeholder=""
+                        >
+
+                        <!-- Error -->
+                        @if ($errors->has('phone'))
+                        <p class="text-red-500 text-xs italic">
+                            {{ $errors->first('phone') }}
+                        </p>
+                        @endif
+                    </div>
                 </div>
+
+                <div class="flex flex-wrap -mx-3 mb-6">
+                    <div class="w-full px-3">
+                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="subject">
+                        Subject (*)
+                        </label>
+                        <input name="subject" class="appearance-none block w-full text-gray-700 
+                            @if ($errors->has('subject')) 
+                                border border-red-500
+                            @else
+                                border-gray-300
+                            @endif 
+                            rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" 
+                            id="subject" 
+                            type="text" 
+                            placeholder=""
+                        >
+
+                        <!-- Error -->
+                        @if ($errors->has('subject'))
+                        <p class="text-red-500 text-xs italic">
+                            {{ $errors->first('subject') }}
+                        </p>
+                        @endif
+                    </div>
                 </div>
                 <div class="flex flex-wrap -mx-3 mb-6">
-                <div class="w-full px-3">
-                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
-                    E-mail (*)
-                    </label>
-                    <input class="appearance-none block w-full text-gray-700 border border-gray-400 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="email" type="email">
-                </div>
-                </div>
-                <div class="flex flex-wrap -mx-3 mb-6">
-                <div class="w-full px-3">
-                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
-                    Message (*)
-                    </label>
-                    <textarea class=" no-resize appearance-none block w-full text-gray-700 border border-gray-400 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 h-48 resize-none" id="message"></textarea>
-                </div>
+                    <div class="w-full px-3">
+                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="message">
+                        Message (*)
+                        </label>
+                        <textarea name="message" class="
+                        no-resize appearance-none block w-full text-gray-700 border
+                        @if ($errors->has('subject')) 
+                            border border-red-500
+                        @else
+                            border-gray-300
+                        @endif 
+                        rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 h-48 resize-none"
+                        id="message"></textarea>
+                    
+                        <!-- Error -->
+                        @if ($errors->has('message'))
+                        <p class="text-red-500 text-xs italic">
+                            {{ $errors->first('message') }}
+                        </p>
+                        @endif
+                    </div>
                 </div>
                 <div class="md:flex md:items-center">
-                <div class="w-full">
-                    <button class="w-full sm:w-64 lg:w-32 shadow bg-orange focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" type="button">
-                    Send
-                    </button>
-                </div>
+                    <div class="w-full">
+                        <button type="submit" name="send" class="w-full sm:w-64 lg:w-32 shadow bg-orange focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded">
+                        Send
+                        </button>
+                    </div>
                 <div class="md:w-2/3"></div>
                 </div>
             </form>

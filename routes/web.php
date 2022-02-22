@@ -6,6 +6,7 @@ use App\Models\Category;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\Frontpage;
+use App\Http\Controllers\ContactUsFormController;
 
 /*
 |--------------------------------------------------------------------------
@@ -53,12 +54,15 @@ Route::get('posts/', [PostController::class, 'index'])->name('home');
 // pass a uri slug to route/view
 Route::get('posts/{post:slug}', [PostController::class, 'show']);
 
-Route::get('contact-us/', function () {
+// Route::get('contact-us/', function () {
 
-    return view('contact-us', [
-        'header' => 'Contact Us',
-    ]);
-});
+//     return view('contact-us', [
+//         'header' => 'Contact Us',
+//     ]);
+// });
+
+Route::get('contact-us/', [ContactUsFormController::class, 'createForm']);
+Route::post('contact-us/', [ContactUsFormController::class, 'ContactUsForm'])->name('contact.store');
 
 // Route::get('authors/{author:username}', function (User $author) {
 

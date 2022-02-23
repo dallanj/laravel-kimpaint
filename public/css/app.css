@@ -1260,6 +1260,9 @@ select {
 .w-3 {
   width: 0.75rem;
 }
+.w-2\/3 {
+  width: 66.666667%;
+}
 .min-w-0 {
   min-width: 0px;
 }
@@ -1403,6 +1406,9 @@ select {
 }
 .gap-2 {
   gap: 0.5rem;
+}
+.gap-32 {
+  gap: 8rem;
 }
 .gap-8 {
   gap: 2rem;

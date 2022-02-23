@@ -226,6 +226,7 @@
   </svg>
 </div>
 
+
 <!-- About us -->
 <div class="py-12 bg-white body-text bg-footer-bg">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -236,7 +237,7 @@
                   <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum.In the first place we have granted to God, and by this our present charter confirmed for us and our heirs forever that the English Church shall be free, and shall have her rights entire, and her liberties inviolate; and we will that it be thus observed; which is apparent from</p>
               </div>
               <div class="w-full lg:w-8/12">
-                  <img class="w-full h-full" src="" alt="" />
+                  <img class="rounded-md w-full h-full drop-shadow-lg" src="img/hero2.jpg" alt="" />
               </div>
           </div>
   
@@ -246,8 +247,18 @@
                   <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum.In the first place we have granted to God, and by this our present charter confirmed for us and our heirs forever that the English Church shall be free, and shall have her rights entire, and her liberties inviolate; and we will that it be thus observed; which is apparent from</p>
               </div>
               <div class="w-full lg:w-8/12 lg:pt-8">
-                  <div class="grid md:grid-cols-4 sm:grid-cols-2 grid-cols-1 lg:gap-4 shadow-lg rounded-md">
+                  <div class="grid md:grid-cols-2 sm:grid-cols-2 grid-cols-1 lg:gap-4">
                       <div class="p-4 pb-6 flex justify-center flex-col items-center">
+                          <img class="md:block hidden rounded-md drop-shadow-lg" src="img/4.jpg" alt="" />
+                          <img class="md:hidden block rounded-md drop-shadow-lg" src="img/3.jpg" alt="" />
+                          <!-- <p class="font-medium text-xl leading-5 text-gray-800 dark:text-white mt-4">title</p> -->
+                      </div>
+                      <div class="p-4 pb-6 flex justify-center flex-col items-center">
+                          <img class="md:block hidden rounded-md drop-shadow-lg" src="img/3.jpg" alt="" />
+                          <img class="md:hidden block rounded-md drop-shadow-lg" src="img/2.jpg" alt="" />
+                          <!-- <p class="font-medium text-xl leading-5 text-gray-800 dark:text-white mt-4">title</p> -->
+                      </div>
+                      <!-- <div class="p-4 pb-6 flex justify-center flex-col items-center">
                           <img class="md:block hidden" src="" alt="" />
                           <img class="md:hidden block" src="" alt="" />
                           <p class="font-medium text-xl leading-5 text-gray-800 dark:text-white mt-4">title</p>
@@ -256,17 +267,7 @@
                           <img class="md:block hidden" src="" alt="" />
                           <img class="md:hidden block" src="" alt="" />
                           <p class="font-medium text-xl leading-5 text-gray-800 dark:text-white mt-4">title</p>
-                      </div>
-                      <div class="p-4 pb-6 flex justify-center flex-col items-center">
-                          <img class="md:block hidden" src="" alt="" />
-                          <img class="md:hidden block" src="" alt="" />
-                          <p class="font-medium text-xl leading-5 text-gray-800 dark:text-white mt-4">title</p>
-                      </div>
-                      <div class="p-4 pb-6 flex justify-center flex-col items-center">
-                          <img class="md:block hidden" src="" alt="" />
-                          <img class="md:hidden block" src="" alt="" />
-                          <p class="font-medium text-xl leading-5 text-gray-800 dark:text-white mt-4">title</p>
-                      </div>
+                      </div> -->
                   </div>
               </div>
           </div>
@@ -275,11 +276,192 @@
 </div>
 
 
+<!-- why choose us -->
+<div class="py-12 body-text bg-gray-50" style="min-height:1100px">
+
+<!-- blob -->
+<div class="relative max-w-10xl mx-auto px-4 mb-20 sm:px-6 lg:px-8">
+<svg class="absolute" id="visual" viewBox="0 0 1200 900" width="1200" height="900" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"><rect x="0" y="0" width="1200" height="900" fill="transparent"></rect><g transform="translate(504.2547351738184 456.75594267026463)"><path d="M173.3 -307.7C221.2 -238.9 254.3 -185.1 270.7 -129.5C287 -73.8 286.5 -16.3 289.4 49.5C292.2 115.4 298.4 189.6 264.2 228.8C230.1 268.1 155.6 272.2 79.5 314.4C3.5 356.6 -74.2 436.9 -142.3 438.1C-210.3 439.3 -268.8 361.4 -328.4 287.4C-388.1 213.5 -448.9 143.4 -479.7 57.2C-510.4 -29 -511 -131.3 -451.4 -183C-391.8 -234.7 -271.9 -235.6 -186.7 -287.4C-101.4 -339.1 -50.7 -441.5 6 -450.9C62.7 -460.3 125.4 -376.5 173.3 -307.7" fill="#F8F5F1"></path></g></svg>
+
+    
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+  
+
+<div class="relative z-10 max-w-screen-xl p-4 mx-auto px-4 sm:px-6 lg:px-8 py-26 lg:mt-20">
+    <!-- <div class=""> -->
+        <div class="lg:grid lg:grid-flow-row-dense lg:grid-cols-2 lg:gap-48 lg:items-center">
+            <div class="lg:col-start-2 lg:max-w-2xl ml-auto">
+                <h2 class="text-base text-orange font-semibold tracking-wide uppercase body-text">
+                    Why choose us
+                </h2>
+                <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                    Because we have over ten years of experience.
+                </p>
+                <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
+                We are passionate about painting homes and businesses, including interior & exterior. With excellent time management, colour and trend expertise we are able to provide you with a great affordable experience.
+                </p>
+                <!-- <div class="bounce rounded-md shadow"> -->
+                <a href="#" class="mt-8 shadow body-text w-1/2 flex items-center justify-center px-8 py-2 border border-transparent text-base font-medium rounded-md text-white bg-orange md:py-3 md:text-lg md:px-10">
+                  <strong>Contact Us</strong>
+                </a>
+                <!-- </div> -->
+                <!-- <ul class="mt-8 md:grid md:grid-cols-2 gap-6">
+                    <li class="mt-6 lg:mt-0">
+                        <div class="flex">
+                            <span class="flex-shrink-0 flex items-center justify-center h-6 w-6 rounded-full bg-green-100 text-green-800 dark:text-green-500 drark:bg-transparent">
+                                <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd">
+                                    </path>
+                                </svg>
+                            </span>
+                            <span class="ml-4 text-base leading-6 font-medium text-gray-500 dark:text-gray-200">
+                                Live modifications
+                            </span>
+                        </div>
+                    </li>
+                    <li class="mt-6 lg:mt-0">
+                        <div class="flex">
+                            <span class="flex-shrink-0 flex items-center justify-center h-6 w-6 rounded-full bg-green-100 text-green-800 dark:text-green-500 drark:bg-transparent">
+                                <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd">
+                                    </path>
+                                </svg>
+                            </span>
+                            <span class="ml-4 text-base leading-6 font-medium text-gray-500 dark:text-gray-200">
+                                Data tracker
+                            </span>
+                        </div>
+                    </li>
+                    <li class="mt-6 lg:mt-0">
+                        <div class="flex">
+                            <span class="flex-shrink-0 flex items-center justify-center h-6 w-6 rounded-full bg-green-100 text-green-800 dark:text-green-500 drark:bg-transparent">
+                                <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd">
+                                    </path>
+                                </svg>
+                            </span>
+                            <span class="ml-4 text-base leading-6 font-medium text-gray-500 dark:text-gray-200">
+                                24/24 support
+                            </span>
+                        </div>
+                    </li>
+                    <li class="mt-6 lg:mt-0">
+                        <div class="flex">
+                            <span class="flex-shrink-0 flex items-center justify-center h-6 w-6 rounded-full bg-green-100 text-green-800 dark:text-green-500 drark:bg-transparent">
+                                <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd">
+                                    </path>
+                                </svg>
+                            </span>
+                            <span class="ml-4 text-base leading-6 font-medium text-gray-500 dark:text-gray-200">
+                                Free tips to improve work time
+                            </span>
+                        </div>
+                    </li>
+                </ul> -->
+            </div>
+            
+
+            
+            <div x-data="{ shown:false }" x-intersect="shown = true" class="mt-10 lg:-mx-4 lg:mt-0 lg:col-start-1">
+                <div x-show="shown" x-transition class="space-y-4">
+                  
+                    <div class="flex items-end justify-center lg:justify-start space-x-4">
+
+                        <div class="scalehover rounded-md bg-white drop-shadow-lg max-w-xs px-6 py-12 mb-8">
+                          <div class="w-20 h-20 relative mb-8">
+                            <div class="absolute top-0 right-0 bg-light-orange rounded w-16 h-16 mt-2 mr-1"></div>
+                            <div class="text-white absolute bottom-0 left-0 bg-orange rounded w-16 h-16 flex items-center justify-center mt-2 mr-3">
+                                <i class="text-3xl fas fa-dollar-sign"></i>
+                            </div>
+                          </div>
+                          <p class="mt-2 text-2xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-2xl">
+                            Affordable Pricing  
+                          </p>
+                          <p class="mt-4 max-w-2xl text-lg text-gray-500 lg:mx-auto">
+                              Offering competitive pricing so you don't have to look elsewhere
+                          </p>
+                        </div>
+
+                        <div class="scalehover rounded-md bg-white drop-shadow-lg max-w-xs p-6 py-12">
+                          <div class="w-20 h-20 relative mb-8">
+                            <div class="absolute top-0 right-0 bg-light-orange rounded w-16 h-16 mt-2 mr-1"></div>
+                            <div class="text-white absolute bottom-0 left-0 bg-orange rounded w-16 h-16 flex items-center justify-center mt-2 mr-3">
+                              <i class="text-3xl fas fa-star"></i>
+                            </div>
+                          </div>
+                          <p class="mt-2 text-2xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-2xl">
+                            Attention to Detail 
+                          </p>
+                          <p class="mt-4 max-w-2xl text-lg text-gray-500 lg:mx-auto">
+                              We pay close attention to trends, colours, and overall quality
+                          </p>
+                        </div>
+                        <!-- <img class="rounded-lg shadow-lg w-40 md:w-64" width="260" src="/images/landscape/4.jpg" alt="2"/> -->
+                    </div>
+                    <div class="flex items-start justify-center lg:justify-start space-x-4 ml-8">
+                    
+                        <div class="scalehover mt-175 rounded-md bg-white drop-shadow-lg max-w-xs px-6 py-12">
+                          <div class="w-20 h-20 relative mb-8">
+                            <div class="absolute top-0 right-0 bg-light-orange rounded w-16 h-16 mt-2 mr-1"></div>
+                            <div class="text-white absolute bottom-0 left-0 bg-orange rounded w-16 h-16 flex items-center justify-center mt-2 mr-3">
+                              <i class="text-3xl fas fa-clock"></i>
+                            </div>
+                          </div>
+                          <p class="mt-2 text-2xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-2xl">
+                            Time Efficient
+                          </p>
+                          <p class="mt-4 max-w-2xl text-lg text-gray-500 lg:mx-auto">
+                              With excellent time management, we will get the job done smoothly
+                          </p>
+                        </div>
+
+                        <div class="scalehover rounded-md bg-white drop-shadow-lg max-w-xs p-6 py-12 mt-1">
+                          <div class="w-20 h-20 relative mb-8">
+                            <div class="absolute top-0 right-0 bg-light-orange rounded w-16 h-16 mt-2 mr-1"></div>
+                            <div class="text-white absolute bottom-0 left-0 bg-orange rounded w-16 h-16 flex items-center justify-center mt-2 mr-3">
+                              <i class="text-3xl fas fa-address-card"></i>
+                            </div>
+                          </div>
+                          <p class="mt-2 text-2xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-2xl">
+                            Woman Owned  
+                          </p>
+                          <p class="mt-4 max-w-2xl text-lg text-gray-500 lg:mx-auto">
+                              We aren't a franchise. We are a woman runned business with plenty of experience
+                          </p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- <div class="mt-10 lg:-mx-4 relative relative-20 lg:mt-0 lg:col-start-1">
+                <div class="relative space-y-4">
+                    <div class="flex items-end justify-center lg:justify-start space-x-4">
+                        <img class="rounded-lg shadow-lg w-32 md:w-56" width="200" src="/images/object/8.jpg" alt="1"/>
+                        <img class="rounded-lg shadow-lg w-40 md:w-64" width="260" src="/images/landscape/4.jpg" alt="2"/>
+                    </div>
+                    <div class="flex items-start justify-center lg:justify-start space-x-4 ml-12">
+                        <img class="rounded-lg shadow-lg w-24 md:w-40" width="170" src="/images/landscape/3.jpg" alt="3"/>
+                        <img class="rounded-lg shadow-lg w-32 md:w-56" width="200" src="/images/object/9.jpg" alt="4"/>
+                    </div>
+                </div>
+            </div> -->
+
+
+        </div>
+    </div>
+</div>
+
+</div>
+</div>
+
 
 
 
 <!-- services -->
-<div class="py-12 bg-white body-text" id="services">
+<div class="py-20 bg-white body-text" id="services">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="lg:text-center">
       <h2 class="text-base text-orange font-semibold tracking-wide uppercase body-text">Services</h2>
@@ -370,7 +552,7 @@
 </div>
 
 <!-- blogs and gallery -->
-<div class="py-12 body-text bg-gray-50">
+<div class="py-20 body-text bg-gray-50">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="lg:text-center">
       <h2 class="text-base text-orange font-semibold tracking-wide uppercase body-text">Portfolio</h2>

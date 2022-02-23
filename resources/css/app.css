@@ -33,8 +33,28 @@
     border-color: #fbb03b;
 }
 
+.max-w-10xl {
+    max-width:100rem;
+}
+
+.mt-175 {
+    margin-top:-1.75rem;
+}
+
+.scalehover {
+    cursor: pointer;
+    transition: 300ms;
+}
+
+.scalehover:hover {
+    transform: scale(1.1);
+}
+
 .bg-orange {
     background-color: #fbb03b;
+}
+.bg-light-orange {
+    background-color: #FEE3B9;
 }
 
 .bg-orange:hover {

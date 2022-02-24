@@ -74,7 +74,9 @@
         <a href="/"><h1 class="logo-text mb-3"><strong>KIMPAINT</strong></h1></a>
         
         <p>
-          Here you can use rows and columns to organize your footer content. Lorem ipsum dolor
+          Lorem ipsum dolor
+          sit amet, consectetur adipisicing elit.
+          Lorem ipsum dolor
           sit amet, consectetur adipisicing elit.
         </p>
       </div>

@@ -23,7 +23,6 @@
               <div class="flex items-center justify-between w-full md:w-auto">
                 <a href="/">
                   <span class="sr-only">Workflow</span>
-                  <!-- <img class="h-8 w-auto sm:h-10" src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"> -->
                   <h1 class="logo-text"><strong>KIMPAINT</strong></h1>
                 </a>
                 <div class="-mr-2 flex items-center md:hidden">
@@ -91,18 +90,10 @@
         <!--
           Mobile menu, show/hide based on menu open state.
 
-          Entering: "duration-150 ease-out"
-            From: "opacity-0 scale-95"
-            To: "opacity-100 scale-100"
-          Leaving: "duration-100 ease-in"
-            From: "opacity-100 scale-100"
-            To: "opacity-0 scale-95"
         -->
         <div :class="{ 'hide': !onPageLoad, 'hideMenu': !open, 'showMenu': open }" class="hide navMenu absolute z-20 top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden">
-          <!-- <div class="rounded-lg shadow-md bg-white ring-1 ring-black ring-opacity-5 overflow-hidden"> -->
             <div class="px-5 pt-4 flex items-center justify-between">
               <div>
-                <!-- <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg" alt=""> -->
                 <a href="/"><h1 class="logo-text"><strong>KIMPAINT</strong></h1></a>
               </div>
               <div class="-mr-2">
@@ -154,7 +145,7 @@
            
             <div class="mt-5 sm:mt-8 flex justify-center justify-start">
               <div class="rounded-md shadow">
-                <a href="#" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-orange md:py-4 md:text-lg md:px-10">
+                <a href="contact-us" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-orange md:py-4 md:text-lg md:px-10">
                   Call or text 905-351-7947
                 </a>
               </div>
@@ -166,14 +157,11 @@
             </footer>
           </div>
 
-         
-        <!-- </div> -->
       </div>
     
       <main class="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
         <div class="sm:text-center lg:text-left">
           <h1 class="hero-title text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
-            <!-- <span class="fadeIn delay-1 block xl:inline">A fresh coat,</span> -->
             <span 
             class="block xl:inline opacity-0" 
             x-intersect="$el.classList.add('fadeInUp')">
@@ -187,16 +175,10 @@
           </p>
           <div x-intersect="$el.classList.add('fadeInUp')" class="opacity-0 delay-animation-2 mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
             <div class="delay-animation-3 bounce rounded-md shadow">
-              <a href="#" class="body-text w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-orange md:py-4 md:text-lg md:px-10">
+              <a href="contact-us" class="body-text w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-orange md:py-4 md:text-lg md:px-10">
                 Get your free paint quote
               </a>
             </div>
-            <!-- <div class="mt-3 sm:mt-0 sm:ml-3">
-              <a href="#" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-indigo-700 bg-indigo-100 hover:bg-indigo-200 md:py-4 md:text-lg md:px-10">
-                Live demo
-              </a>
-            </div> -->
-
           </div>
         </div>
       </main>
@@ -234,7 +216,7 @@
 
 
 <!-- About us -->
-<div class="py-12 bg-white body-text bg-footer-bg">
+<div id="about" class="py-12 bg-white body-text bg-footer-bg">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           <div class="flex flex-col lg:flex-row justify-between gap-32">
@@ -243,7 +225,7 @@
                   <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum.In the first place we have granted to God, and by this our present charter confirmed for us and our heirs forever that the English Church shall be free, and shall have her rights entire, and her liberties inviolate; and we will that it be thus observed; which is apparent from</p>
               </div>
               <div class="w-full lg:w-8/12">
-                  <img x-intersect="$el.classList.add('scale')" class="delay-animation-1 opacity-0 rounded-md w-full h-full drop-shadow-lg" src="img/hero2.jpg" alt="" />
+                  <img x-intersect="$el.classList.add('scale')" class="delay-animation-1 opacity-0 rounded-md w-full h-full drop-shadow-lg" src="img/hero2.jpg" alt="Painting a door using a roller" />
               </div>
           </div>
   
@@ -255,23 +237,11 @@
               <div class="w-full lg:w-8/12 lg:pt-8">
                   <div class="grid md:grid-cols-2 sm:grid-cols-2 grid-cols-1 lg:gap-4">
                       <div class="p-4 pb-6 flex justify-center flex-col items-center">
-                          <img x-intersect="$el.classList.add('scale')" class="delay-animation-2 opacity-0 block rounded-md drop-shadow-lg" src="img/3.jpg" alt="" />
-                          <!-- <p class="font-medium text-xl leading-5 text-gray-800 dark:text-white mt-4">title</p> -->
+                          <img x-intersect="$el.classList.add('scale')" class="delay-animation-2 opacity-0 block rounded-md drop-shadow-lg" src="img/4.jpg" alt="Before picture of a house" />
                       </div>
                       <div class="p-4 pb-6 flex justify-center flex-col items-center">
-                          <img x-intersect="$el.classList.add('scale')" class="delay-animation-2 opacity-0 block rounded-md drop-shadow-lg" src="img/2.jpg" alt="" />
-                          <!-- <p class="font-medium text-xl leading-5 text-gray-800 dark:text-white mt-4">title</p> -->
+                          <img x-intersect="$el.classList.add('scale')" class="delay-animation-2 opacity-0 block rounded-md drop-shadow-lg" src="img/3.jpg" alt="After picture of a exterior painted house" />
                       </div>
-                      <!-- <div class="p-4 pb-6 flex justify-center flex-col items-center">
-                          <img class="md:block hidden" src="" alt="" />
-                          <img class="md:hidden block" src="" alt="" />
-                          <p class="font-medium text-xl leading-5 text-gray-800 dark:text-white mt-4">title</p>
-                      </div>
-                      <div class="p-4 pb-6 flex justify-center flex-col items-center">
-                          <img class="md:block hidden" src="" alt="" />
-                          <img class="md:hidden block" src="" alt="" />
-                          <p class="font-medium text-xl leading-5 text-gray-800 dark:text-white mt-4">title</p>
-                      </div> -->
                   </div>
               </div>
           </div>
@@ -293,7 +263,6 @@
   
 
 <div class="relative z-10 max-w-screen-xl p-4 mx-auto px-4 sm:px-6 lg:px-8 py-26 lg:mt-20">
-    <!-- <div class=""> -->
         <div class="lg:grid lg:grid-flow-row-dense lg:grid-cols-2 lg:gap-48 lg:items-center">
             <div x-intersect="$el.classList.add('fadeInUp')" class="lg:col-start-2 lg:max-w-2xl ml-auto">
                 <h2 class="text-base text-orange font-semibold tracking-wide uppercase body-text">
@@ -319,7 +288,7 @@
                   
                     <div class="flex items-end justify-center lg:justify-start space-x-4">
 
-                        <div x-intersect="$el.classList.add('fadeIn')" class="delay-animation-1 opacity-0 scalehover rounded-md bg-white drop-shadow-lg max-w-xs px-6 py-12 mb-8">
+                        <div x-intersect="$el.classList.add('fadeIn')" class="w-full delay-animation-1 opacity-0 scalehover rounded-md bg-white drop-shadow-lg md:max-w-xs px-6 py-12 mb-8">
                           <div class="w-20 h-20 relative mb-8">
                             <div class="absolute top-0 right-0 bg-light-orange rounded w-16 h-16 mt-2 mr-1"></div>
                             <div class="text-white absolute bottom-0 left-0 bg-orange rounded w-16 h-16 flex items-center justify-center mt-2 mr-3">

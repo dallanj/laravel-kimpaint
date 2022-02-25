@@ -9,6 +9,13 @@ class Category extends Model
 {
     use HasFactory;
 
+    protected $table = 'categories';
+
+    protected $fillable = [
+        'name',
+        'slug',
+    ];
+
     public function posts()
     {
         // hasOne, hasMany, belongsTo, belongsToMany

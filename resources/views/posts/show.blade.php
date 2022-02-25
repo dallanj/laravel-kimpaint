@@ -25,7 +25,7 @@
                 </p>
 
                 <div>
-                    {!! $post->body !!}
+                {!! html_entity_decode($post->body) !!}
                 </div>
             </article>
 

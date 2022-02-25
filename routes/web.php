@@ -44,6 +44,10 @@ Route::group(['middleware' =>[
         return view('admin.blogs');
     })->name('blogs');
 
+    Route::get('/categories', function () {
+        return view('admin.categories');
+    })->name('categories');
+
 });
 
 // Route::get('/{urlslug}', Frontpage::class);

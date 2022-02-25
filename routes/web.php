@@ -48,6 +48,10 @@ Route::group(['middleware' =>[
         return view('admin.categories');
     })->name('categories');
 
+    Route::get('/gallery', function () {
+        return view('admin.gallery');
+    })->name('gallery');
+
 });
 
 // Route::get('/{urlslug}', Frontpage::class);

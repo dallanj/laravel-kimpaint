@@ -57,6 +57,14 @@ Route::group(['middleware' =>[
 // Route::get('/{urlslug}', Frontpage::class);
 Route::get('/', Frontpage::class);
 
+// Route::get('404', function () {
+
+//     return view('404', [
+//         'header' => 'Contact Us',
+//     ]);
+// });
+
+
 Route::get('posts/', [PostController::class, 'index'])->name('home');
 
 // pass a uri slug to route/view

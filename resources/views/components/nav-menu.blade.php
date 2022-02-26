@@ -59,7 +59,7 @@
                             @if ($subLink->menuid == $link->id)
                               <a href="{{ url('/'.$subLink->slug) }}" class="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50">
                                 <div class="ml-4">
-                                  <p class="text-base font-medium text-gray-900">
+                                  <p class="text-base font-normal text-gray-900">
                                     {{ $subLink->label }}
                                   </p>
                                 </div>

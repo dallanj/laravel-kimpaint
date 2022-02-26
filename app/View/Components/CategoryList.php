@@ -17,7 +17,8 @@ class CategoryList extends Component
     {
         return view('components.category-list', [
             'categories' => Category::all(),
-            'currentCategory' => Category::firstWhere('slug', request('category'))
+            'currentCategory' => Category::firstWhere('slug', request('category')),
+            'url' => \Request::path()
         ]);
     }
 }

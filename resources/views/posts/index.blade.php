@@ -14,41 +14,11 @@
                 <x-category-list />
             </aside>
 
-            <div class="">
-                <div class="form-floating mb-3 max-w-lg body-text">
-                    <form method="GET" action="/posts/">
-                        
-                        @if (request('category'))
-                            <input type="hidden" name="category" value="{{ request('category') }}"/>
-                        @endif
-                    
-                        <label for="search" class="sr-only">Search for blog posts</label>
-                        <input 
-                            name="search"
-                            type="text" 
-                            class="form-control
-                                block
-                                w-full
-                                px-3
-                                py-1.5
-                                text-base
-                                font-normal
-                                text-gray-700
-                                bg-white bg-clip-padding
-                                border border-solid border-gray-300
-                                rounded
-                                transition
-                                ease-in-out
-                                m-0
-                                focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                                id="search" 
-                                placeholder="Search blog posts"
-                                value="{{ request('search') }}"
-                            >
-                    </form>
-                </div>
-            </div>
 
+            <aside class="form-floating mb-3 max-w-lg body-text">
+                @include ('posts._search-form')
+            </aside>
+    
             @if ($posts->count())
                 @foreach($posts as $post)
                 <article class="{{ $loop->even ? 'bg-gray' : '' }} body-text">  
@@ -80,7 +50,7 @@
                     </p>
 
                     <!-- body -->
-                    <div class="blog-posts-excerpt">{!! $post->excerpt !!}</div>
+                    <p class="blog-posts-excerpt">{!! $post->excerpt !!}</p>
 
                 </article> 
                 @endforeach
@@ -88,9 +58,9 @@
                 <p>There aren't any blog posts yet!</p>
             @endif
 
-            <div class="my-8">
+            <aside class="my-8">
                 {{ $posts->links() }}
-            </div>
+            </aside>
 
         </div>
     </main>

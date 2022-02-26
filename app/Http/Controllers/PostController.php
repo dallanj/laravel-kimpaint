@@ -37,7 +37,7 @@ class PostController extends Controller
         return view('posts.index', [
             'posts' => Post::latest()->filter(request(['search', 'category', 'author']))->paginate(4),
             'author' => $author,
-            'category' => $category
+            'category' => $category,
         ]);
         
     }
@@ -57,6 +57,8 @@ class PostController extends Controller
         return view('posts.show', [
             'post' => $post,
             'header' => $post->title,
+            'recentPosts' => Post::latest()->take(5)->get(),
+            'categories' => Category::all(),
         ]);
     }
 

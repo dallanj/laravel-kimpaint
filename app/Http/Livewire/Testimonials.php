@@ -41,6 +41,11 @@ class Testimonials extends Component
         $this->resetPage();
     }
 
+    public function read()
+    {
+        return Testimonial::paginate(10);
+    }
+
     /**
      * Update records in database
      *

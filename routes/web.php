@@ -52,6 +52,10 @@ Route::group(['middleware' =>[
         return view('admin.gallery');
     })->name('gallery');
 
+    Route::get('/testimonials', function () {
+        return view('admin.testimonials');
+    })->name('testimonials');
+
 });
 
 // Route::get('/{urlslug}', Frontpage::class);

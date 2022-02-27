@@ -143,7 +143,7 @@
             
               <div class="mt-5 sm:mt-8 flex justify-center justify-start">
                 <div class="rounded-md shadow">
-                  <a href="#" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-orange md:py-4 md:text-lg md:px-10">
+                  <a href="tel:+019053517947" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-orange md:py-4 md:text-lg md:px-10">
                     Call or text 905-351-7947
                   </a>
                 </div>

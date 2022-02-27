@@ -145,8 +145,8 @@
            
             <div class="mt-5 sm:mt-8 flex justify-center justify-start">
               <div class="rounded-md shadow">
-                <a href="contact-us" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-orange md:py-4 md:text-lg md:px-10">
-                  Call or text 905-351-7947
+                <a href="tel:+019053517947" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-orange md:py-4 md:text-lg md:px-10">
+                  <strong>Call or text 905-351-7947</strong>
                 </a>
               </div>
             </div>
@@ -176,7 +176,7 @@
           <div x-intersect="$el.classList.add('fadeInUp')" class="opacity-0 delay-animation-2 mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
             <div class="delay-animation-3 bounce rounded-md shadow">
               <a href="contact-us" class="body-text w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-orange md:py-4 md:text-lg md:px-10">
-                Get your free paint quote
+                <strong>Get your free estimate</strong>
               </a>
             </div>
           </div>
@@ -199,13 +199,13 @@
     </h2>
     <div class="sm:justify-center mt-8 flex md:mt-8 lg:mt-12 lg:flex-shrink-0">
       <div class="inline-flex rounded-md shadow">
-        <a href="#" class="body-text inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-orange">
-          Call us now (905-351-7947)
+        <a href="tel:+019053517947" class="body-text inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-orange">
+          <strong>Call us now (905-351-7947)</strong>
         </a>
       </div>
       <div class="ml-3 inline-flex rounded-md shadow">
-        <a href="#" class="body-text inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-orange bg-whitebutton">
-          Email us
+        <a href="mailto:contact@kimpaint.com" class="body-text inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-orange bg-whitebutton">
+          <strong>Email us</strong>
         </a>
       </div>
     </div>
@@ -275,7 +275,7 @@
                 We are passionate about painting homes and businesses, including interior & exterior. With excellent time management, colour and trend expertise we are able to provide you with a great affordable experience.
                 </p>
                 <!-- <div class="bounce rounded-md shadow"> -->
-                <a href="#" class="mt-8 shadow body-text w-1/2 flex items-center justify-center px-8 py-2 border border-transparent text-base font-medium rounded-md text-white bg-orange md:py-3 md:text-lg md:px-10">
+                <a href="/contact-us" class="mt-8 shadow body-text w-1/2 flex items-center justify-center px-8 py-2 border border-transparent text-base font-medium rounded-md text-white bg-orange md:py-3 md:text-lg md:px-10">
                   <strong>Contact Us</strong>
                 </a>
                 

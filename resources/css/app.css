@@ -42,7 +42,13 @@
 }
 
 .mt-175 {
-    margin-top:-1.75rem;
+    margin-top:0rem;
+}
+
+@media (min-width: 768px) {
+    .mt-175 {
+        margin-top:-1.75rem;
+    }
 }
 
 .scalehover {
@@ -341,6 +347,10 @@ p.portfolio-card-end > i {
 }
 button .fas{
     color: rgba(69, 69, 70, .25);
+}
+.testimonial-slide {
+    position:absolute;
+    transition: transform 1s;
 }
 .slide{ 
     width: 100%;

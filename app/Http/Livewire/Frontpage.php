@@ -90,6 +90,13 @@ class Frontpage extends Component
         ->orderBy('created_at', 'desc')
         ->paginate(1);
     }
+
+    private function testimonials()
+    {
+        return DB::table('testimonials')
+        ->orderBy('created_at', 'desc')
+        ->get();
+    }
     
     /**
      * Livewire render function
@@ -103,6 +110,7 @@ class Frontpage extends Component
             'subMenuLinks' => $this->subMenuLinks(),
             'recentBlogs' => $this->recentBlogs(),
             'allBlogs' => $this->allBlogs(),
+            'testimonials' => $this->testimonials(),
             'data' => $this->read(),
         ])->layout('layouts.frontpage');
     }

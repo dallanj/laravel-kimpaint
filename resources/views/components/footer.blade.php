@@ -48,7 +48,7 @@
           </path>
         </svg>
       </a>
-      <a href="#!" class="mr-6 text-gray-600">
+      <a href="https://instagram.com/jones_painter" class="mr-6 text-gray-600">
         <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="instagram"
           class="w-3.5" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
           <path fill="currentColor"

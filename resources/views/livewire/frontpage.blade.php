@@ -1,11 +1,3 @@
-<!-- <div>
-    {{-- Care about people's approval and you will be their prisoner. --}}
-    full page livewire component
-    <p>Current slug is {{ $urlslug }}</p>
-    <p>Current title is {{ $title }}</p>
-    Current content is {!! $content !!}
-</div> -->
-
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
 <div class="lg:hero-full-height relative bg-white overflow-hidden">
@@ -28,7 +20,6 @@
                 <div class="-mr-2 flex items-center md:hidden">
                   <button id="openNavMenu" @click.prevent="open = !open, onPageLoad = true" type="button" class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 navButton hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500" aria-expanded="false">
                     <span class="sr-only">Open main menu</span>
-                    <!-- Heroicon name: outline/menu -->
                     <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                     </svg>
@@ -219,32 +210,36 @@
 <div id="about" class="py-12 bg-white body-text bg-footer-bg">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-          <div class="flex flex-col lg:flex-row justify-between gap-32">
-              <div x-intersect="$el.classList.add('fadeInUp')" class="opacity-0 w-full lg:w-5/12 flex flex-col justify-center">
-                  <h2 class="w-2/3 mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl pb-4 border-b-4 border-orange">About us</h2>
-                  <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum.In the first place we have granted to God, and by this our present charter confirmed for us and our heirs forever that the English Church shall be free, and shall have her rights entire, and her liberties inviolate; and we will that it be thus observed; which is apparent from</p>
-              </div>
-              <div class="w-full lg:w-8/12">
-                  <img x-intersect="$el.classList.add('scale')" class="delay-animation-1 opacity-0 rounded-md w-full h-full drop-shadow-lg" src="img/hero2.jpg" alt="Painting a door using a roller" />
-              </div>
+      <div class="flex flex-col lg:flex-row justify-between gap-32">
+          <div x-intersect="$el.classList.add('fadeInUp')" class="opacity-0 w-full lg:w-5/12 flex flex-col justify-center">
+              <h2 class="w-2/3 mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl pb-4 border-b-4 border-orange">About us</h2>
+              <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
+                  We offer expert painting and spraying, renovations, pressure washing and staining decks and fences. We also use the best paint and stain. We treat your home or business like it's ours. We stand behind the work we do.
+              </p>
           </div>
+          <div class="w-full lg:w-7/12">
+              <img x-intersect="$el.classList.add('scale')" class="delay-animation-1 opacity-0 rounded-md w-full h-full drop-shadow-lg" src="img/hero2.jpg" alt="Painting a door using a roller" />
+          </div>
+      </div>
   
-          <div class="flex lg:flex-row flex-col justify-between gap-32 pt-12">
-              <div x-intersect="$el.classList.add('fadeInUp')" class="delay-animation-1 opacity-0 w-full lg:w-5/12 flex flex-col justify-center">
-                  <h2 class="w-2/3 mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl pb-4 border-b-4 border-orange">Our Story</h2>
-                  <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum.In the first place we have granted to God, and by this our present charter confirmed for us and our heirs forever that the English Church shall be free, and shall have her rights entire, and her liberties inviolate; and we will that it be thus observed; which is apparent from</p>
-              </div>
-              <div class="w-full lg:w-8/12 lg:pt-8">
-                  <div class="grid md:grid-cols-2 sm:grid-cols-2 grid-cols-1 lg:gap-4">
-                      <div class="p-4 pb-6 flex justify-center flex-col items-center">
-                          <img x-intersect="$el.classList.add('scale')" class="delay-animation-2 opacity-0 block rounded-md drop-shadow-lg" src="img/4.jpg" alt="Before picture of a house" />
-                      </div>
-                      <div class="p-4 pb-6 flex justify-center flex-col items-center">
-                          <img x-intersect="$el.classList.add('scale')" class="delay-animation-2 opacity-0 block rounded-md drop-shadow-lg" src="img/3.jpg" alt="After picture of a exterior painted house" />
-                      </div>
+      <div class="flex lg:flex-row flex-col justify-between gap-32 pt-12">
+          <div x-intersect="$el.classList.add('fadeInUp')" class="delay-animation-1 opacity-0 w-full lg:w-5/12 flex flex-col justify-center">
+              <h2 class="w-2/3 mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl pb-4 border-b-4 border-orange">Our Story</h2>
+              <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
+                  Kim has 10 years experience doing residential and commerical painting. Having taken courses at Niagara College for operating a business, it has truly helped her build a successful painting company.
+              </p>
+          </div>
+          <div class="w-full lg:w-7/12 lg:pt-8">
+              <div class="grid md:grid-cols-2 sm:grid-cols-2 grid-cols-1 lg:gap-4">
+                  <div class="p-4 pb-6 flex justify-center flex-col items-center">
+                      <img x-intersect="$el.classList.add('scale')" class="delay-animation-2 opacity-0 block rounded-md drop-shadow-lg" src="img/4.jpg" alt="Before picture of a house" />
+                  </div>
+                  <div class="p-4 pb-6 flex justify-center flex-col items-center">
+                      <img x-intersect="$el.classList.add('scale')" class="delay-animation-2 opacity-0 block rounded-md drop-shadow-lg" src="img/3.jpg" alt="After picture of a exterior painted house" />
                   </div>
               </div>
           </div>
+      </div>
           
   </div>
 </div>
@@ -253,127 +248,98 @@
 <!-- why choose us -->
 <div class="py-12 body-text bg-gray-50" style="min-height:1100px">
 
-<!-- blob -->
-<div class="relative max-w-10xl mx-auto px-4 mb-20 sm:px-6 lg:px-8">
-<svg x-intersect="$el.classList.add('scale')" class="absolute" id="visual" viewBox="0 0 1200 900" width="1200" height="900" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"><rect x="0" y="0" width="1200" height="900" fill="transparent"></rect><g transform="translate(504.2547351738184 456.75594267026463)"><path d="M173.3 -307.7C221.2 -238.9 254.3 -185.1 270.7 -129.5C287 -73.8 286.5 -16.3 289.4 49.5C292.2 115.4 298.4 189.6 264.2 228.8C230.1 268.1 155.6 272.2 79.5 314.4C3.5 356.6 -74.2 436.9 -142.3 438.1C-210.3 439.3 -268.8 361.4 -328.4 287.4C-388.1 213.5 -448.9 143.4 -479.7 57.2C-510.4 -29 -511 -131.3 -451.4 -183C-391.8 -234.7 -271.9 -235.6 -186.7 -287.4C-101.4 -339.1 -50.7 -441.5 6 -450.9C62.7 -460.3 125.4 -376.5 173.3 -307.7" fill="#F8F5F1"></path></g></svg>
-
-    
-  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-  
-
-<div class="relative z-10 max-w-screen-xl p-4 mx-auto px-4 sm:px-6 lg:px-8 py-26 lg:mt-20">
-        <div class="lg:grid lg:grid-flow-row-dense lg:grid-cols-2 lg:gap-48 lg:items-center">
-            <div x-intersect="$el.classList.add('fadeInUp')" class="lg:col-start-2 lg:max-w-2xl ml-auto">
-                <h2 class="text-base text-orange font-semibold tracking-wide uppercase body-text">
-                    Why choose us
-                </h2>
-                <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
-                    Because we have over ten years of experience.
-                </p>
-                <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
-                We are passionate about painting homes and businesses, including interior & exterior. With excellent time management, colour and trend expertise we are able to provide you with a great affordable experience.
-                </p>
-                <!-- <div class="bounce rounded-md shadow"> -->
-                <a href="/contact-us" class="mt-8 shadow body-text w-1/2 flex items-center justify-center px-8 py-2 border border-transparent text-base font-medium rounded-md text-white bg-orange md:py-3 md:text-lg md:px-10">
-                  <strong>Contact Us</strong>
-                </a>
-                
-            </div>
-            
-
-            
-            <div class="mt-10 lg:-mx-4 lg:mt-0 lg:col-start-1">
-                <div class="space-y-4">
-                  
-                    <div class="flex items-end justify-center lg:justify-start space-x-4">
-
-                        <div x-intersect="$el.classList.add('fadeIn')" class="w-full delay-animation-1 opacity-0 scalehover rounded-md bg-white drop-shadow-lg md:max-w-xs px-6 py-12 mb-8">
-                          <div class="w-20 h-20 relative mb-8">
-                            <div class="absolute top-0 right-0 bg-light-orange rounded w-16 h-16 mt-2 mr-1"></div>
-                            <div class="text-white absolute bottom-0 left-0 bg-orange rounded w-16 h-16 flex items-center justify-center mt-2 mr-3">
-                                <i class="text-3xl fas fa-dollar-sign"></i>
-                            </div>
-                          </div>
-                          <p class="mt-2 text-2xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-2xl">
-                            Affordable Pricing  
-                          </p>
-                          <p class="mt-4 max-w-2xl text-lg text-gray-500 lg:mx-auto">
-                              Offering competitive pricing so you don't have to look elsewhere
-                          </p>
-                        </div>
-
-                        <div x-intersect="$el.classList.add('fadeIn')" class="delay-animation-2 opacity-0 scalehover rounded-md bg-white drop-shadow-lg max-w-xs p-6 py-12">
-                          <div class="w-20 h-20 relative mb-8">
-                            <div class="absolute top-0 right-0 bg-light-orange rounded w-16 h-16 mt-2 mr-1"></div>
-                            <div class="text-white absolute bottom-0 left-0 bg-orange rounded w-16 h-16 flex items-center justify-center mt-2 mr-3">
-                              <i class="text-3xl fas fa-star"></i>
-                            </div>
-                          </div>
-                          <p class="mt-2 text-2xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-2xl">
-                            Attention to Detail 
-                          </p>
-                          <p class="mt-4 max-w-2xl text-lg text-gray-500 lg:mx-auto">
-                              We pay close attention to trends, colours, and overall quality
-                          </p>
-                        </div>
-                        <!-- <img class="rounded-lg shadow-lg w-40 md:w-64" width="260" src="/images/landscape/4.jpg" alt="2"/> -->
+    <!-- blob -->
+    <div class="relative max-w-10xl mx-auto px-4 mb-20 sm:px-6 lg:px-8">
+        <svg x-intersect="$el.classList.add('scale')" class="absolute" id="visual" viewBox="0 0 1200 900" width="1200" height="900" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"><rect x="0" y="0" width="1200" height="900" fill="transparent"></rect><g transform="translate(504.2547351738184 456.75594267026463)"><path d="M173.3 -307.7C221.2 -238.9 254.3 -185.1 270.7 -129.5C287 -73.8 286.5 -16.3 289.4 49.5C292.2 115.4 298.4 189.6 264.2 228.8C230.1 268.1 155.6 272.2 79.5 314.4C3.5 356.6 -74.2 436.9 -142.3 438.1C-210.3 439.3 -268.8 361.4 -328.4 287.4C-388.1 213.5 -448.9 143.4 -479.7 57.2C-510.4 -29 -511 -131.3 -451.4 -183C-391.8 -234.7 -271.9 -235.6 -186.7 -287.4C-101.4 -339.1 -50.7 -441.5 6 -450.9C62.7 -460.3 125.4 -376.5 173.3 -307.7" fill="#F8F5F1"></path></g></svg>
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="relative z-10 max-w-screen-xl p-4 mx-auto px-4 sm:px-6 lg:px-8 py-26 lg:mt-20">
+                <div class="lg:grid lg:grid-flow-row-dense lg:grid-cols-2 lg:gap-48 lg:items-center">
+                    <div x-intersect="$el.classList.add('fadeInUp')" class="lg:col-start-2 lg:max-w-2xl ml-auto">
+                        <h2 class="text-base text-orange font-semibold tracking-wide uppercase body-text">
+                            Why choose us
+                        </h2>
+                        <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                            Because we have over ten years of experience.
+                        </p>
+                        <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
+                        We are passionate about painting homes and businesses, including interior & exterior. With excellent time management, colour and trend expertise we are able to provide you with a great affordable experience.
+                        </p>
+                        <a href="/contact-us" class="mt-8 shadow body-text w-1/2 flex items-center justify-center px-8 py-2 border border-transparent text-base font-medium rounded-md text-white bg-orange md:py-3 md:text-lg md:px-10">
+                          <strong>Contact Us</strong>
+                        </a>   
                     </div>
-                    <div class="flex items-start justify-center lg:justify-start space-x-4 ml-8">
                     
-                        <div x-intersect="$el.classList.add('fadeIn')" class="delay-animation-3 opacity-0 scalehover mt-175 rounded-md bg-white drop-shadow-lg max-w-xs px-6 py-12">
-                          <div class="w-20 h-20 relative mb-8">
-                            <div class="absolute top-0 right-0 bg-light-orange rounded w-16 h-16 mt-2 mr-1"></div>
-                            <div class="text-white absolute bottom-0 left-0 bg-orange rounded w-16 h-16 flex items-center justify-center mt-2 mr-3">
-                              <i class="text-3xl fas fa-clock"></i>
-                            </div>
-                          </div>
-                          <p class="mt-2 text-2xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-2xl">
-                            Time Efficient
-                          </p>
-                          <p class="mt-4 max-w-2xl text-lg text-gray-500 lg:mx-auto">
-                              With excellent time management, we will get the job done smoothly
-                          </p>
-                        </div>
+                    <div class="mt-10 lg:-mx-4 lg:mt-0 lg:col-start-1">
+                        <div class="space-y-4">
+                            <div class="flex flex-col md:flex-row items-end justify-center lg:justify-start space-x-4">
+                                <div x-intersect="$el.classList.add('fadeIn')" class="w-full delay-animation-1 opacity-0 scalehover rounded-md bg-white drop-shadow-lg w-full md:max-w-xs px-6 py-12 mb-8">
+                                    <div class="w-20 h-20 relative mb-8">
+                                        <div class="absolute top-0 right-0 bg-light-orange rounded w-16 h-16 mt-2 mr-1"></div>
+                                        <div class="text-white absolute bottom-0 left-0 bg-orange rounded w-16 h-16 flex items-center justify-center mt-2 mr-3">
+                                            <i class="text-3xl fas fa-dollar-sign"></i>
+                                        </div>
+                                    </div>
+                                    <p class="mt-2 text-2xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-2xl">
+                                      Affordable Pricing  
+                                    </p>
+                                    <p class="mt-4 max-w-2xl text-lg text-gray-500 lg:mx-auto">
+                                        Offering competitive pricing so you don't have to look elsewhere
+                                    </p>
+                                </div>
 
-                        <div x-intersect="$el.classList.add('fadeIn')" class="delay-animation-4 opacity-0 scalehover rounded-md bg-white drop-shadow-lg max-w-xs p-6 py-12 mt-1">
-                          <div class="w-20 h-20 relative mb-8">
-                            <div class="absolute top-0 right-0 bg-light-orange rounded w-16 h-16 mt-2 mr-1"></div>
-                            <div class="text-white absolute bottom-0 left-0 bg-orange rounded w-16 h-16 flex items-center justify-center mt-2 mr-3">
-                              <i class="text-3xl fas fa-address-card"></i>
+                                <div x-intersect="$el.classList.add('fadeIn')" class="delay-animation-2 opacity-0 scalehover rounded-md bg-white drop-shadow-lg w-full md:max-w-xs p-6 py-12 mb-4 md:mb-0">
+                                  <div class="w-20 h-20 relative mb-8">
+                                    <div class="absolute top-0 right-0 bg-light-orange rounded w-16 h-16 mt-2 mr-1"></div>
+                                    <div class="text-white absolute bottom-0 left-0 bg-orange rounded w-16 h-16 flex items-center justify-center mt-2 mr-3">
+                                        <i class="text-3xl fas fa-star"></i>
+                                    </div>
+                                  </div>
+                                  <p class="mt-2 text-2xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-2xl">
+                                      Attention to Detail 
+                                  </p>
+                                  <p class="mt-4 max-w-2xl text-lg text-gray-500 lg:mx-auto">
+                                      We pay close attention to trends, colours, and overall quality
+                                  </p>
+                                </div>
                             </div>
-                          </div>
-                          <p class="mt-2 text-2xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-2xl">
-                            Woman Owned  
-                          </p>
-                          <p class="mt-4 max-w-2xl text-lg text-gray-500 lg:mx-auto">
-                              We aren't a franchise. We are a woman runned business with plenty of experience
-                          </p>
-                        </div>
 
+                            <div class="flex flex-col md:flex-row items-start justify-center lg:justify-start md:space-x-4 md:ml-8">
+                                <div x-intersect="$el.classList.add('fadeIn')" class="delay-animation-3 opacity-0 scalehover mt-175 rounded-md bg-white drop-shadow-lg w-full md:max-w-xs px-6 py-12 mb-8 md:mb-0">
+                                    <div class="w-20 h-20 relative mb-8">
+                                        <div class="absolute top-0 right-0 bg-light-orange rounded w-16 h-16 mt-2 mr-1"></div>
+                                        <div class="text-white absolute bottom-0 left-0 bg-orange rounded w-16 h-16 flex items-center justify-center mt-2 mr-3">
+                                            <i class="text-3xl fas fa-clock"></i>
+                                        </div>
+                                    </div>
+                                    <p class="mt-2 text-2xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-2xl">
+                                        Time Efficient
+                                    </p>
+                                    <p class="mt-4 max-w-2xl text-lg text-gray-500 lg:mx-auto">
+                                        With excellent time management, we will get the job done smoothly
+                                    </p>
+                                </div>
+
+                                <div x-intersect="$el.classList.add('fadeIn')" class="delay-animation-4 opacity-0 scalehover rounded-md bg-white drop-shadow-lg w-full md:max-w-xs p-6 py-12 md:mt-1">
+                                    <div class="w-20 h-20 relative mb-8">
+                                        <div class="absolute top-0 right-0 bg-light-orange rounded w-16 h-16 mt-2 mr-1"></div>
+                                        <div class="text-white absolute bottom-0 left-0 bg-orange rounded w-16 h-16 flex items-center justify-center mt-2 mr-3">
+                                            <i class="text-3xl fas fa-address-card"></i>
+                                        </div>
+                                    </div>
+                                    <p class="mt-2 text-2xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-2xl">
+                                        Woman Owned  
+                                    </p>
+                                    <p class="mt-4 max-w-2xl text-lg text-gray-500 lg:mx-auto">
+                                        We aren't a franchise. We are a woman runned business with plenty of experience
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-
-            <!-- <div class="mt-10 lg:-mx-4 relative relative-20 lg:mt-0 lg:col-start-1">
-                <div class="relative space-y-4">
-                    <div class="flex items-end justify-center lg:justify-start space-x-4">
-                        <img class="rounded-lg shadow-lg w-32 md:w-56" width="200" src="/images/object/8.jpg" alt="1"/>
-                        <img class="rounded-lg shadow-lg w-40 md:w-64" width="260" src="/images/landscape/4.jpg" alt="2"/>
-                    </div>
-                    <div class="flex items-start justify-center lg:justify-start space-x-4 ml-12">
-                        <img class="rounded-lg shadow-lg w-24 md:w-40" width="170" src="/images/landscape/3.jpg" alt="3"/>
-                        <img class="rounded-lg shadow-lg w-32 md:w-56" width="200" src="/images/object/9.jpg" alt="4"/>
-                    </div>
-                </div>
-            </div> -->
-
-
         </div>
     </div>
-</div>
-
-</div>
 </div>
 
 
@@ -388,7 +354,7 @@
         This is what we can do
       </p>
       <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
-        Lorem ipsum dolor sit amet consect adipisicing elit. Possimus magnam voluptatum cupiditate veritatis in accusamus quisquam.
+        We will come visit you and listen to what you would like us to do. We supply paint on us if needed. We take laser measurements for accurate pricing and we can determine how much paint we need.
       </p>
     </div>
 
@@ -402,7 +368,7 @@
             <p class="ml-16 text-lg leading-6 font-medium text-gray-900">Residential</p>
           </dt>
           <dd class="mt-2 ml-16 text-base text-gray-500">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.
+            We will paint anything on a residential property. We provide free estimates and no job is too big or too small. Attention to detail.
           </dd>
         </div>
 
@@ -414,7 +380,7 @@
             <p class="ml-16 text-lg leading-6 font-medium text-gray-900">Commercial</p>
           </dt>
           <dd class="mt-2 ml-16 text-base text-gray-500">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.
+            Business, medical office, property management and more. Feel free to tell us what you have and what needs to be done.
           </dd>
         </div>
 
@@ -438,7 +404,7 @@
             <p class="ml-16 text-lg leading-6 font-medium text-gray-900">Drywall</p>
           </dt>
           <dd class="mt-2 ml-16 text-base text-gray-500">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.
+            Repairs and installation. We also do tapeing and sanding.
           </dd>
         </div>
 
@@ -450,7 +416,7 @@
             <p class="ml-16 text-lg leading-6 font-medium text-gray-900">Desk & fence installation</p>
           </dt>
           <dd class="mt-2 ml-16 text-base text-gray-500">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.
+            We build and install fences and make sure it's securely installed.
           </dd>
         </div>
 
@@ -462,13 +428,42 @@
             <p class="ml-16 text-lg leading-6 font-medium text-gray-900">Power washing & stain</p>
           </dt>
           <dd class="mt-2 ml-16 text-base text-gray-500">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.
+            We restore your old wood fances, decks, pergolas and more using the best products.
           </dd>
         </div>
       </dl>
     </div>
   </div>
 </div>
+
+<!-- testimonials -->
+@if (isset($testimonials))
+  <div style="background-color:#f7f6f2" class="h-80 md:h-96 lg:h-80 py-12 w-full mx-auto">
+      <div class="flex items-center md:items-start flex-col md:flex-row justify-center">
+          <div x-intersect="$el.classList.add('fadeInUp')" class="relative opacity-0 w-full md:w-2/3">
+              @foreach ($testimonials as $testimonial)
+              <div class="testimonial-slide max-w-7xl px-4 sm:px-6 lg:px-8 w-full">
+                <p class="body-text text-gray-500 w-full md:w-2/3 m-auto text-left text-lg md:text-xl lg:text-2xl">
+                    <span class="font-bold text-orange">“</span>
+                    @php
+                      $str = ltrim($testimonial->testimonial, '<div>');
+                      $str = substr_replace($str ,"",-6);
+                      @endphp
+                    {{ $str }}
+                    <span class="font-bold text-orange">”</span>
+                </p>
+                <div class="body-text flex mt-8 items-center justify-center">
+                    <span class="font-semibold text-orange mr-2 text-lg">
+                      {{ $testimonial->author}}
+                    </span>
+                </div>
+              </div>
+              @endforeach
+          </div>
+      </div>
+  </div>
+@endif
+
 
 <!-- blogs and gallery -->
 <div class="py-20 body-text bg-gray-50">
@@ -479,7 +474,7 @@
         Previous work and blogs
       </p>
       <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
-        Lorem ipsum dolor sit amet consect adipisicing elit. Possimus magnam voluptatum cupiditate veritatis in accusamus quisquam.
+        Here is a collection of our past work and blog posts. Click <a href="/posts" class="text-orange"><strong>here</strong></a> to view more content!
       </p>
     </div>
 
@@ -487,23 +482,22 @@
     <div class="mt-10 hidden md:block">
         <div class="relative grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-8">
           @foreach ($recentBlogs as $post)
-            <!-- blog post example -->
-            <div class="portfolio-card">
-              <a class="flex flex-col" href="{{ url('posts/'.$post->slug) }}">
-              <!-- image -->
-              <img class="portfolio-card-img" src=" {{ 'img/hero.png' }}" alt="Photo1"/>
-              <!-- <p class="pt-4 portfolio-card-type">Blog</p> -->
-              <!-- title -->
-              <h2 class="portfolio-card-title">{{ $post->title }}</h2>
-              <!-- short description -->
-              <p class="portfolio-card-desc">{!! \Illuminate\Support\Str::limit($post->excerpt, 50, '...') !!}</p>
-              <!-- read more -->
-              <p class="portfolio-card-end">
-                  READ MORE
-                  <i class="fas fa-angle-double-right"></i>
-              </p>
-              </a>
-            </div>
+            <a class="flex flex-col" href="{{ url('posts/'.$post->slug) }}">
+              <div class="portfolio-card">
+                <!-- image -->
+                <img class="portfolio-card-img" src=" {{ 'img/hero.png' }}" alt="Photo1"/>
+                <!-- <p class="pt-4 portfolio-card-type">Blog</p> -->
+                <!-- title -->
+                <h2 class="portfolio-card-title">{{ $post->title }}</h2>
+                <!-- short description -->
+                <p class="portfolio-card-desc">{!! \Illuminate\Support\Str::limit($post->excerpt, 50, '...') !!}</p>
+                <!-- read more -->
+                <p class="portfolio-card-end">
+                    READ MORE
+                    <i class="fas fa-angle-double-right"></i>
+                </p>
+              </div>
+            </a>
           @endforeach
         </div>
     </div>
@@ -517,23 +511,24 @@
 
         @foreach ($recentBlogs as $post)
           <div class="slide">
-            <!-- blog post example -->
-            <div class="portfolio-card">
-              <a href="{{ url('posts/'.$post->slug) }}">
-              <!-- image -->
-              <img class="portfolio-card-img" src=" {{ 'img/hero.png' }}" alt="Photo1"/>
-              <!-- <p class="pt-4 portfolio-card-type">Blog</p> -->
-              <!-- title -->
-              <h2 class="portfolio-card-title">{{ $post->title }}</h2>
-              <!-- short description -->
-              <p class="portfolio-card-desc">{!! \Illuminate\Support\Str::limit($post->excerpt, 50, '...') !!}</p>
-              <!-- read more -->
-              <p class="portfolio-card-end">
-                  READ MORE
-                  <i class="fas fa-angle-double-right"></i>
-              </p>
-              </a>
-            </div>
+            <a href="{{ url('posts/'.$post->slug) }}">
+              <div class="portfolio-card">
+              
+                <!-- image -->
+                <img class="portfolio-card-img" src=" {{ 'img/hero.png' }}" alt="Photo1"/>
+                <!-- <p class="pt-4 portfolio-card-type">Blog</p> -->
+                <!-- title -->
+                <h2 class="portfolio-card-title">{{ $post->title }}</h2>
+                <!-- short description -->
+                <p class="portfolio-card-desc">{!! \Illuminate\Support\Str::limit($post->excerpt, 50, '...') !!}</p>
+                <!-- read more -->
+                <p class="portfolio-card-end">
+                    READ MORE
+                    <i class="fas fa-angle-double-right"></i>
+                </p>
+              
+              </div>
+            </a>
           </div>
         @endforeach
 
@@ -547,10 +542,5 @@
 
   </div>
 </div>
-
-
-
-  
-
 
 <x-footer />

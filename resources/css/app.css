@@ -2,6 +2,9 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
+body {
+    overflow-x:hidden;
+}
 .trix-content {
     max-height:300px !important;
     overflow-y: scroll;

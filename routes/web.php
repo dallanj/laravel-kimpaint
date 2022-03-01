@@ -19,6 +19,13 @@ use App\Http\Controllers\ContactUsFormController;
 |
 */
 
+Route::group(['middleware' => ['web']], function () {
+    Route::get('storage/{filename}', function ($filename) {
+        $userid = session()->get('user')->id;
+        return Storage::get($userid . '/' . $filename);
+    });
+});
+
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');

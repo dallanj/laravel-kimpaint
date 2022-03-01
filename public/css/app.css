@@ -590,6 +590,39 @@ select {
   --tw-backdrop-saturate:  ;
   --tw-backdrop-sepia:  ;
 }
+.container {
+  width: 100%;
+}
+@media (min-width: 640px) {
+
+  .container {
+    max-width: 640px;
+  }
+}
+@media (min-width: 768px) {
+
+  .container {
+    max-width: 768px;
+  }
+}
+@media (min-width: 1024px) {
+
+  .container {
+    max-width: 1024px;
+  }
+}
+@media (min-width: 1280px) {
+
+  .container {
+    max-width: 1280px;
+  }
+}
+@media (min-width: 1536px) {
+
+  .container {
+    max-width: 1536px;
+  }
+}
 .prose {
   color: var(--tw-prose-body);
   max-width: 65ch;
@@ -997,6 +1030,9 @@ select {
 .m-auto {
   margin: auto;
 }
+.-m-1 {
+  margin: -0.25rem;
+}
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -1261,6 +1297,9 @@ select {
 .w-3 {
   width: 0.75rem;
 }
+.w-1\/3 {
+  width: 33.333333%;
+}
 .min-w-0 {
   min-width: 0px;
 }
@@ -1278,6 +1317,9 @@ select {
 }
 .max-w-md {
   max-width: 28rem;
+}
+.max-w-full {
+  max-width: 100%;
 }
 .max-w-2xl {
   max-width: 42rem;
@@ -1666,6 +1708,10 @@ select {
   -o-object-fit: cover;
      object-fit: cover;
 }
+.object-center {
+  -o-object-position: center;
+     object-position: center;
+}
 .p-2 {
   padding: 0.5rem;
 }
@@ -1804,6 +1850,9 @@ select {
 }
 .pt-12 {
   padding-top: 3rem;
+}
+.pb-12 {
+  padding-bottom: 3rem;
 }
 .text-left {
   text-align: left;
@@ -2158,6 +2207,9 @@ select {
         -webkit-animation: scale 1s forwards;
                 animation: scale 1s forwards;
     }
+body {
+    overflow-x:hidden;
+}
 .trix-content {
     max-height:300px !important;
     overflow-y: scroll;
@@ -3219,6 +3271,10 @@ article + article {
     grid-column: span 1 / span 1;
   }
 
+  .md\:-m-2 {
+    margin: -0.5rem;
+  }
+
   .md\:mt-0 {
     margin-top: 0px;
   }
@@ -3360,6 +3416,10 @@ article + article {
 
   .md\:border-l {
     border-left-width: 1px;
+  }
+
+  .md\:p-2 {
+    padding: 0.5rem;
   }
 
   .md\:py-4 {
@@ -3507,16 +3567,16 @@ article + article {
     width: 41.666667%;
   }
 
-  .lg\:w-8\/12 {
-    width: 66.666667%;
+  .lg\:w-7\/12 {
+    width: 58.333333%;
   }
 
   .lg\:w-32 {
     width: 8rem;
   }
 
-  .lg\:w-7\/12 {
-    width: 58.333333%;
+  .lg\:w-8\/12 {
+    width: 66.666667%;
   }
 
   .lg\:max-w-2xl {
@@ -3586,6 +3646,11 @@ article + article {
     padding-bottom: 4rem;
   }
 
+  .lg\:px-32 {
+    padding-left: 8rem;
+    padding-right: 8rem;
+  }
+
   .lg\:pb-8 {
     padding-bottom: 2rem;
   }
@@ -3600,6 +3665,10 @@ article + article {
 
   .lg\:pt-8 {
     padding-top: 2rem;
+  }
+
+  .lg\:pt-12 {
+    padding-top: 3rem;
   }
 
   .lg\:text-left {

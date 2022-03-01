@@ -1,7 +1,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
 <div class="lg:hero-full-height relative bg-white overflow-hidden">
-  <div class="headerFixedBg hidden"></div>
+  <div class="headerFixedBg hidden max-w-full"></div>
   <div class="max-w-7xl mx-auto">
     <div class="relative z-20 pb-8 bg-white sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
       <svg class="lg:hero-full-height hidden lg:block absolute right-0 inset-y-0 h-full w-48 text-white transform translate-x-1/2" fill="currentColor" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
@@ -330,7 +330,7 @@
                                         Woman Owned  
                                     </p>
                                     <p class="mt-4 max-w-2xl text-lg text-gray-500 lg:mx-auto">
-                                        We aren't a franchise. We are a woman runned business with plenty of experience
+                                        We are not a franchise. We are a woman runned business with plenty of experience
                                     </p>
                                 </div>
                             </div>
@@ -392,7 +392,7 @@
             <p class="ml-16 text-lg leading-6 font-medium text-gray-900">Interior & exterior painting</p>
           </dt>
           <dd class="mt-2 ml-16 text-base text-gray-500">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.
+            Painting can enhance the appearance and value of your home or work place significantly.
           </dd>
         </div>
 
@@ -428,7 +428,7 @@
             <p class="ml-16 text-lg leading-6 font-medium text-gray-900">Power washing & stain</p>
           </dt>
           <dd class="mt-2 ml-16 text-base text-gray-500">
-            We restore your old wood fances, decks, pergolas and more using the best products.
+            We restore your old wood fences, decks, pergolas and more using the best products.
           </dd>
         </div>
       </dl>
@@ -438,7 +438,7 @@
 
 <!-- testimonials -->
 @if (isset($testimonials))
-  <div style="background-color:#f7f6f2" class="h-80 md:h-96 lg:h-80 py-12 w-full mx-auto">
+  <div style="background-color:#f7f6f2" class="h-80 md:h-96 lg:h-80 py-12 w-full mx-auto overflow-hidden">
       <div class="flex items-center md:items-start flex-col md:flex-row justify-center">
           <div x-intersect="$el.classList.add('fadeInUp')" class="relative opacity-0 w-full md:w-2/3">
               @foreach ($testimonials as $testimonial)
@@ -465,6 +465,13 @@
 @endif
 
 
+@php
+$a=array("stock-1.jpg","stock-2.jpg","stock-3.jpg","hero.png","hero2.jpg", "hero3.jpg");
+$random_keys=array_rand($a,4);
+$counterOne = 0;
+$counterTwo = 0;
+@endphp
+
 <!-- blogs and gallery -->
 <div class="py-20 body-text bg-gray-50">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -485,7 +492,7 @@
             <a class="flex flex-col" href="{{ url('posts/'.$post->slug) }}">
               <div class="portfolio-card">
                 <!-- image -->
-                <img class="portfolio-card-img" src=" {{ 'img/hero.png' }}" alt="Photo1"/>
+                <img class="portfolio-card-img" src="img/{{ $a[$random_keys[$counterOne]] }}" alt="Thumbnail for blog post"/>
                 <!-- <p class="pt-4 portfolio-card-type">Blog</p> -->
                 <!-- title -->
                 <h2 class="portfolio-card-title">{{ $post->title }}</h2>
@@ -498,6 +505,9 @@
                 </p>
               </div>
             </a>
+            @php
+              $counterOne += 1;
+            @endphp
           @endforeach
         </div>
     </div>
@@ -515,7 +525,7 @@
               <div class="portfolio-card">
               
                 <!-- image -->
-                <img class="portfolio-card-img" src=" {{ 'img/hero.png' }}" alt="Photo1"/>
+                <img class="portfolio-card-img" src="img/{{ $a[$random_keys[$counterTwo]] }}" alt="Thumbnail for blog post"/>
                 <!-- <p class="pt-4 portfolio-card-type">Blog</p> -->
                 <!-- title -->
                 <h2 class="portfolio-card-title">{{ $post->title }}</h2>
@@ -530,6 +540,9 @@
               </div>
             </a>
           </div>
+          @php
+            $counterTwo += 1;
+          @endphp
         @endforeach
 
       </div>

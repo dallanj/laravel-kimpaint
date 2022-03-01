@@ -6,7 +6,9 @@
 
         <x-jet-validation-errors class="mb-4" />
 
-        <form method="POST" action="{{ route('register') }}">
+        <p>We aren't accepting new registrations at this time</p>
+
+        <!-- <form method="POST" action="{{ route('register') }}">
             @csrf
 
             <div>
@@ -55,6 +57,6 @@
                     {{ __('Register') }}
                 </x-jet-button>
             </div>
-        </form>
+        </form> -->
     </x-jet-authentication-card>
 </x-guest-layout>

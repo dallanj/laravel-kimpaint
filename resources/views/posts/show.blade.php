@@ -11,7 +11,7 @@
 
             <div class="flex flex-col md:flex-row gap-10">
                 <article class="flex-1 post-container">
-
+<!-- <img src="{{ asset('storage/galleries/nxfcVFuxV85pEINTLnQUo0Wbo1XQgpoSUCe66RnQ.jpg') }}" /> -->
                     <h1 class="text-5xl font-bold text-gray-900 pb-6">{{ $post->title }}</h1>
 
                     <p class="blog-posts-author">

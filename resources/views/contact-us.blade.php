@@ -38,6 +38,7 @@
                                 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" 
                                 id="name" 
                                 type="text" 
+                                value="{{ old('name') }}"
                                 placeholder="Jane Doe"
                             >
 
@@ -62,6 +63,7 @@
                                 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" 
                                 id="company" 
                                 type="text" 
+                                value="{{ old('company') }}"
                                 placeholder=""
                             >
 
@@ -88,6 +90,7 @@
                                 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" 
                                 id="email" 
                                 type="email" 
+                                value="{{ old('email') }}"
                                 placeholder="contact@janedoe.com"
                             >
                             
@@ -111,6 +114,7 @@
                                 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" 
                                 id="phone" 
                                 type="text" 
+                                value="{{ old('phone') }}"
                                 placeholder=""
                             >
 
@@ -137,6 +141,7 @@
                                 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" 
                                 id="subject" 
                                 type="text" 
+                                value="{{ old('subject') }}"
                                 placeholder=""
                             >
 
@@ -161,7 +166,7 @@
                                 border-gray-300
                             @endif 
                             rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 h-48 resize-none"
-                            id="message"></textarea>
+                            id="message">{{ old('message') }}</textarea>
                         
                             <!-- Error -->
                             @if ($errors->has('message'))

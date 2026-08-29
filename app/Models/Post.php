@@ -18,7 +18,19 @@ class Post extends Model
 
     // this will accept anything other than id
     // protected $guarded = ['id'];
-    protected $guarded = [];
+    protected $fillable = [
+        'user_id',
+        'category_id',
+        'slug',
+        'title',
+        'excerpt',
+        'body',
+        'published_at',
+    ];
+
+    protected $casts = [
+        'published_at' => 'datetime',
+    ];
 
     // use this instead of load(['category', 'author'])
     // this will drop many queries from being ran on page load

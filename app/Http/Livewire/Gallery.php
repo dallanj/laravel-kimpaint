@@ -6,6 +6,7 @@ use Livewire\Component;
 use Livewire\WithFileUploads;
 use App\Models\ImageUpload;
 use Livewire\WithPagination;
+use Illuminate\Support\Facades\Storage;
 
 class Gallery extends Component
 {
@@ -59,7 +60,10 @@ class Gallery extends Component
      */
     public function delete()
     {
-        ImageUpload::destroy($this->modelId);
+        $image = ImageUpload::findOrFail($this->modelId);
+
+        Storage::disk('public')->delete($image->fileName);
+        $image->delete();
         $this->modalConfirmDeleteVisible = false;
         $this->resetPage();
     }

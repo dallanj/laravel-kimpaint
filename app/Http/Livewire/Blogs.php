@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire;
 
-use App\Models\Blog;
+use App\Models\Post;
 use Livewire\Component;
 use Illuminate\Validation\Rule;
 use App\Models\Category;
@@ -10,7 +10,6 @@ use App\Models\User;
 use Livewire\WithPagination;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;  // Laravels built in slug generator
-use Illuminate\Support\Facades\DB;
 
 class Blogs extends Component
 {
@@ -35,7 +34,7 @@ class Blogs extends Component
     {
         return [
             'title' => 'required',
-            'slug' => ['required', Rule::unique('posts','slug')->ignore($this->modelId)],
+            'slug' => ['required', Rule::unique('posts', 'slug')->ignore($this->modelId)],
             'excerpt' => 'required',
             'category_id' => 'required'
         ];
@@ -54,7 +53,7 @@ class Blogs extends Component
 
     public function read()
     {
-        return Blog::paginate(10);
+        return Post::latest()->paginate(10);
     }
 
     /**
@@ -65,7 +64,7 @@ class Blogs extends Component
     public function update()
     {
         $this->validate();
-        Blog::find($this->modelId)->update($this->modelData());
+        Post::findOrFail($this->modelId)->update($this->modelData());
         $this->modalFormVisible = false;
         $this->reset();
     }
@@ -77,7 +76,7 @@ class Blogs extends Component
      */
     public function delete()
     {
-        Blog::destroy($this->modelId);
+        Post::destroy($this->modelId);
         $this->modalConfirmDeleteVisible = false;
         $this->resetPage();
     }
@@ -105,7 +104,7 @@ class Blogs extends Component
     public function create()
     {
         $this->validate();
-        Blog::create($this->modelData());
+        Post::create($this->modelData());
         $this->modalFormVisible = false;
         $this->reset();
     }
@@ -158,7 +157,7 @@ class Blogs extends Component
      */
     private function loadModal()
     {
-        $data = Blog::find($this->modelId);
+        $data = Post::findOrFail($this->modelId);
         $this->title = $data->title;
         $this->slug = $data->slug;
         $this->excerpt = $data->excerpt;
@@ -179,7 +178,7 @@ class Blogs extends Component
             'slug' => $this->slug,
             'body' => $this->body,
             'excerpt' => $this->excerpt,
-            'user_id' => Auth::user()->id,
+            'user_id' => Auth::id(),
             'category_id' => $this->category_id
         ];
     }

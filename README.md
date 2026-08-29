@@ -1,66 +1,136 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+# Kim Painting CMS
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+A custom marketing website and lightweight content management system built for a residential and commercial painting contractor in Ontario's Niagara region.
 
-## About Laravel
+This repository is presented as a portfolio case study. It demonstrates how a small business website can combine a polished, responsive public experience with practical tools that let a non-technical client manage pages, navigation, project posts, gallery images, and testimonials without developer support.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+> Client note: This began as a production client engagement. The repository is retained for educational and portfolio purposes; demo credentials and sample seed content are not production data.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Product overview
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+The application serves two audiences:
 
-## Learning Laravel
+- Visitors can explore services and recent projects, filter blog posts, read testimonials, and request an estimate through a validated contact form.
+- Authenticated staff can manage site content through reactive Livewire interfaces, including rich-text pages, nested navigation, posts and categories, image uploads, and testimonials.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### Highlights
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+- Responsive public site built with Blade, Tailwind CSS, and Alpine.js
+- Database-driven pages with configurable home and not-found fallbacks
+- Searchable blog with category and author filters
+- Livewire CRUD workflows with modal forms and pagination
+- Trix rich-text editing for pages and posts
+- Image upload management backed by Laravel's public filesystem
+- Contact lead capture with server-side validation, database persistence, and email notification
+- Laravel Jetstream authentication, email verification, teams, API tokens, and two-factor authentication
 
-## Laravel Sponsors
+## Technical design
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+| Layer | Technology | Responsibility |
+| --- | --- | --- |
+| Backend | PHP 8, Laravel 8 | Routing, validation, email, persistence, authorization |
+| Interactive UI | Livewire 2, Alpine.js | Reactive administration without a separate SPA |
+| Presentation | Blade, Tailwind CSS 3 | Server-rendered, responsive interface |
+| Data | Eloquent, MySQL | Pages, posts, navigation, contacts, media metadata |
+| Tooling | Laravel Mix, PHPUnit | Asset compilation and automated checks |
 
-### Premium Partners
+The public routes are declared before the final CMS slug route, preventing dynamic pages from shadowing application endpoints. Contact submissions use a dedicated form request, store only validated attributes, send from the configured application address, and set the visitor as `Reply-To` to avoid mail spoofing issues.
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[CMS Max](https://www.cmsmax.com/)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
-- **[Romega Software](https://romegasoftware.com)**
+## Local setup
 
-## Contributing
+Prerequisites:
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+- PHP 8.0 with the extensions required by Laravel 8
+- Composer 2
+- Node.js 16+ and npm
+- MySQL 5.7+ or MariaDB 10.3+
 
-## Code of Conduct
+Install and configure the application:
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+```bash
+git clone <repository-url>
+cd laravel-kimpaint
+composer install
+cp .env.example .env
+php artisan key:generate
+```
 
-## Security Vulnerabilities
+Create a database, update the `DB_*` values in `.env`, then run:
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+```bash
+php artisan migrate --seed
+php artisan storage:link
+npm install
+npm run dev
+php artisan serve
+```
+
+Open `http://127.0.0.1:8000`. The seed creates sample content and a local-only administrator account:
+
+```text
+Email: demo@example.com
+Password: password
+```
+
+Change or remove this account before exposing any seeded environment publicly.
+
+### Email configuration
+
+Contact requests are always saved to the database. To also deliver notifications, configure `MAIL_*` and set the recipient:
+
+```dotenv
+MAIL_CONTACT_RECIPIENT=contact@example.com
+```
+
+For local development, `MAIL_MAILER=log` is a convenient option; messages will be written to `storage/logs/laravel.log`.
+
+## Useful commands
+
+```bash
+# Run the PHP test suite
+php artisan test
+
+# Rebuild front-end assets during development
+npm run dev
+
+# Create an optimized production bundle
+npm run prod
+
+# Reset and repopulate a local database
+php artisan migrate:fresh --seed
+```
+
+## Project structure
+
+```text
+app/Http/Livewire/       Reactive content-management components
+app/Http/Controllers/    Public blog and contact request handling
+app/Http/Requests/       Reusable request validation
+app/Models/              Eloquent domain models
+database/migrations/     Relational schema
+database/seeders/        Repeatable portfolio demo content
+resources/views/         Blade layouts, components, and pages
+resources/css/           Tailwind entry point and custom styling
+routes/web.php           Public, authenticated, and CMS routes
+```
+
+## Refactoring notes
+
+The portfolio version focuses on maintainability and operational safety while preserving the original client experience:
+
+- consolidated duplicate dashboard routes and replaced repetitive view closures with `Route::view`
+- restored database-driven page slugs with constrained, last-match routing
+- standardized blog administration on the `Post` domain model
+- replaced broad mass assignment with explicit allowlists and model casts
+- moved contact validation into a form request and removed visitor-controlled sender addresses
+- ensured deleting gallery records also removes their stored files
+- replaced raw query-builder access on the homepage with Eloquent models
+- added deterministic demo content for a working fresh install
+
+## Further improvements
+
+Given another iteration, the next priorities would be upgrading the Laravel/Livewire stack, adding browser coverage for each admin workflow, moving contact delivery to a queued mailable, adding spam protection and rate limiting, and migrating client-specific copy into configurable page sections.
 
 ## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+The application code is provided for portfolio and educational review. Client branding, copy, and photography remain the property of their respective owners and are not licensed for reuse.
